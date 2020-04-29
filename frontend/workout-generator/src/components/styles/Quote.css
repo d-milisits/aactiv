@@ -1,0 +1,130 @@
+.quote-page {
+  display:flex;
+  width:100%;
+  height:100vh;
+  background: url("../../img/boxing.jpg") center no-repeat;
+  background-size: cover;
+}
+.prompt-content, .quote {
+  flex:1;
+}
+.prompt-content {
+  background-color: #dfe6e9;
+  /* margin: 8%; */
+  font-family: 'Roboto Condensed';
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* border-radius: 15px; */
+  text-transform: uppercase;
+}
+.quote-prompt {
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: black;
+}
+.quote-entry {
+  font-size: 1.4rem;
+  padding-top: 25px;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+.quote-prompt, .quote-entry {
+  max-width:60%;
+  text-align: center;
+}
+/* Button Styling */
+.button-container {
+  display:flex;
+  flex-direction: column;
+  padding: 50px;
+  align-items: center;
+  justify-content: center;
+}
+.button {
+  display: inline-flex;
+  height: 50px;
+  width: 175px;
+  border: 2px solid #2d3436;
+  margin: 20px 20px 20px 20px;
+  color: #2d3436;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1.3rem;
+  letter-spacing: 1.5px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+a {
+  color: #2d3436;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+#button-3 {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#button-3 a {
+  position: relative;
+  transition: all .45s ease-Out;
+}
+#circle {
+  width: 0%;
+  height: 0%;
+  opacity: 0;
+  line-height: 40px;
+  border-radius: 50%;
+  background: #ff6b6b;
+  position: absolute;
+  transition: all .35s ease-Out;
+  top: 20px;
+  left: 70px;
+}
+#button-3:hover #circle {
+  width: 200%;
+  height: 500%;
+  opacity: 1;
+  top: -70px;
+  left: -70px;
+}
+#button-3:hover a {
+  color: #fff;
+}
+.button-container button+button {
+  margin: 50px 0 10px 0;
+}
+/* QUOTE STYLING */
+.quote {
+  font-size: 1.45rem;
+  text-align: center;
+  padding:100px;
+  color: white;
+  width: 40%;
+  /* padding-top: 9%; */
+  opacity: .75;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 5%;
+}
+.quote-content {
+  font-family: 'Bebas Neue';
+}
+.continue-container .button {
+  border: 2px solid white;
+  color: white;
+}
+.continue-container .button a {
+  color: white;
+}
+.continue-container {
+  padding-bottom: 5%;
+}
+.continue-container #button-3:hover a {
+  color: black;
+}

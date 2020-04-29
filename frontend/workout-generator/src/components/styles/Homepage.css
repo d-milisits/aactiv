@@ -1,0 +1,348 @@
+*,
+*::before,
+*::after {
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --main-font: 'Bebas Neue';
+  --body-font: 'Roboto Condensed';
+  --main-font-color-dark: #252525;
+  --secondary-font-color: #ee5253;
+  --body-font-color: #fff;
+}
+
+.page {
+  font-family: var(--body-font);
+  font-size: 10px;
+  color: var(--body-font-color);
+}
+
+.other-img {
+  width: 100%;
+  max-width:100%;
+}
+a {
+  text-decoration: none;
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+.container {
+  width:100%;
+  max-width:122.5rem;
+  margin: 0 auto;
+  padding: 0 2.4rem;
+}
+
+/* Header Styling */
+header {
+  width:100%;
+  position:absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,.5), transparent);
+}
+.nav {
+  height: 7.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.aactiv {
+  font-size: 2rem;
+  letter-spacing: 4px;
+  margin-right: 85vw;
+  transition: color .4s;
+}
+.aactiv:hover {
+  color: var(--secondary-font-color);
+  cursor: pointer;
+}
+.menu-toggle {
+  color: #fff;
+  font-size: 2.2rem;
+  position:absolute;
+  top:50%;
+  transform: translateY(-50%);
+  right: 2.5rem;
+  cursor: pointer;
+  z-index: 1500;
+}
+.times {
+  font-size: 2.2rem;
+  display:none;
+}
+.menu {
+  font-size: 2.2rem;
+}
+.nav-list {
+  list-style: none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:40%;
+  height: 100vh;
+  background-color: #2d3436;
+  padding: 4.4rem;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  z-index: 1250;
+  transform: translateX(-100%);
+  transition: transform .5s;
+}
+.nav::before {
+  content: '';
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,.8);
+  z-index: 1000;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity .5s;
+}
+.open .times {
+  display: block;
+}
+.open .menu {
+  display: none;
+}
+.open .nav-list {
+  transform: translateX(0);
+}
+.open .nav::before{
+  opacity: 1;
+  transform: scale(1);
+}
+.nav-item {
+  border-bottom: 2px solid rgba(255,255,255,.3);
+}
+.nav-link {
+  display:block;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 2rem;
+  letter-spacing: 4px;
+  margin-right: -2px;
+  transition: color .4s;
+  font-family: var(--body-font);
+}
+.nav-link:hover {
+  color: var(--secondary-font-color);
+}
+/* HERO STYLING */
+.hero {
+  width: 100%;
+  height: 100vh;
+  background: url("../../img/gym.png") center no-repeat;
+  backdrop-filter: brightness(50%);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.sub-headline {
+  font-size: 1.85rem;
+  text-transform: uppercase;
+  font-family: var(--body-font);
+  font-weight: 400;
+  line-height: .4;
+  letter-spacing: 8px;
+  padding-bottom: 25px;
+  padding-left: 1vw;
+}
+.asterisk {
+  color: var(--secondary-font-color);
+  margin: 0 1.6rem;
+  padding-bottom:.5vh;
+}
+.separator{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.line {
+  width:100%;
+  max-width: 8.4rem;
+  height: .25rem;
+  background-color:#fff;
+}
+.single-animation h5 {
+  font-size: 1.65rem;
+  font-family: var(--body-font);
+  font-weight:800;
+  letter-spacing: 4px;
+  padding-top: 1.5vh;
+  text-transform: uppercase;
+  /* opacity: .75; */
+  margin-bottom: 1.2rem;
+  margin-right:-3px;
+}
+.btn {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-right: -2px;
+  color: inherit;
+}
+.cta-btn {
+  font-size: 1.1rem;
+  background-color: var(--secondary-font-color);
+  padding: .9rem 1.8rem;
+  transition: background-color .8s;
+  color: #fff;
+  margin-top: .75rem;
+}
+.cta-btn:hover,
+.cta-btn:focus {
+  color: #111;
+  background-color: white;
+}
+/* THE POINT STYLING */
+.the-point {
+  color: #111;
+}
+.container-two {
+  display: flex;
+}
+.global-headline {
+  text-align: center;
+  margin-top: 3.9rem;
+}
+.the-point .asterisk {
+  margin: 2.4rem 0 0 0;
+}
+.the-point .headline {
+  font-size: 2rem;
+  letter-spacing: 1px;
+  margin-right: -20px;
+  font-weight: 200;
+}
+.the-point .sub-headline {
+  color: var(--secondary-font-color);
+  line-height: .42;
+  font-weight: 800;
+}
+.headline-dark {
+  color: #111;
+  letter-spacing: .4rem;
+}
+.point-info {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #f5f6fa;
+  padding: 5rem 0 10rem 0;
+}
+.point-info-img {
+  background: url("../../img/gym-img.jpg") no-repeat center center/cover;
+}
+.point-info, .point-info-img {
+  flex:1;
+}
+.point-text p {
+  line-height: 2;
+  margin-bottom: 3rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  max-width: 70%;
+  margin:auto;
+}
+.body-btn {
+  font-size: 1.5rem;
+  position: relative;
+  transition: color .5s;
+  padding-top: 3rem;
+}
+.body-btn::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background-color: var(--secondary-font-color);
+  transition: .5s all ease;
+}
+.body-btn:hover,
+.body-btn:focus {
+  color: var(--secondary-font-color);
+}
+.body-btn:hover::before,
+.body-btn:focus::before {
+  background-color: #111;
+  width: 200%;
+  left:-105px;
+}
+/* GET STARTED STYLING */
+.get-started {
+  color: #111;
+}
+.container-two {
+  display: flex;
+}
+.get-started .asterisk {
+  margin: 2.4rem 0 0 0;
+}
+.get-started .headline {
+  font-size: 2rem;
+  margin-right: -20px;
+  letter-spacing: 1px;
+  font-weight: 200;
+}
+.get-started .sub-headline {
+  color: var(--secondary-font-color);
+  line-height: .42;
+  font-weight: 800;
+}
+.headline-dark {
+  color: #111;
+  letter-spacing: .4rem;
+}
+.start-info {
+  flex:2;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #f5f6fa;
+  padding: 5rem 0 10rem 0;
+}
+.get-started-img {
+  background: url("../../img/gym-img2.jpg") no-repeat center center/cover;
+}
+.start-info, .get-started-img {
+  flex:1;
+}
+.other-img-2 {
+  flex:1;
+  height: auto;
+  width: 35.4vw;
+  margin-top: -5px;
+}
+.start-text p {
+  line-height: 2;
+  margin-bottom: 3rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  max-width: 70%;
+  margin:auto;
+}
+.start-text .body-btn:hover::before,
+.start-text .body-btn:focus::before {
+  background-color: #111;
+  width: 196%;
+}
