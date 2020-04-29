@@ -20,7 +20,7 @@ function Quote() {
 
   return (
     <div className="quote-page">
-      <div data-aos="fade-down" className="prompt-content">
+      <div data-aos="fade-right" className="prompt-content">
         <h1 className="quote-prompt">Before we begin, it is our belief that being motivated
           is key to a successful day.
         </h1>
@@ -38,7 +38,6 @@ function Quote() {
       </div>
       <div className="quote">
         <h1 className="quote-content">{quote}</h1>
-        {/* <h1 className="quote-content">this is a quote</h1> */}
         <div className="continue-container">
           <div className="button" id="button-3">
               <div id="circle"></div>

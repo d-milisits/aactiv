@@ -105,7 +105,6 @@ a {
   padding:100px;
   color: white;
   width: 40%;
-  /* padding-top: 9%; */
   opacity: .75;
   display: flex;
   flex-direction: column;
@@ -115,16 +114,28 @@ a {
 .quote-content {
   font-family: 'Bebas Neue';
 }
+/* @keyframes fadeIn {
+  from {
+    opacity:0;
+  }
+  to {
+    opacity: 1;
+  }
+} */
 .continue-container .button {
   border: 2px solid white;
   color: white;
 }
 .continue-container .button a {
   color: white;
+  letter-spacing: 1px;
 }
 .continue-container {
   padding-bottom: 5%;
 }
 .continue-container #button-3:hover a {
   color: black;
+}
+.continue-container #button-3:hover #circle {
+  background: white;
 }
