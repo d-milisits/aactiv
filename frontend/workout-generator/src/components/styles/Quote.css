@@ -79,9 +79,9 @@ a {
   opacity: 0;
   line-height: 40px;
   border-radius: 50%;
-  background: #ff6b6b;
+  background: #2d3436;
   position: absolute;
-  transition: all .35s ease-Out;
+  transition: all .3s ease-Out;
   top: 20px;
   left: 70px;
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Aos from 'aos';
 import './styles/PreferenceForm.css';
 
 function PreferenceForm() {
@@ -17,9 +18,19 @@ function PreferenceForm() {
     setEquip("");
   }
 
+  function PopUp() {
+    const selectElement = function (element) {
+      return document.querySelector(element);
+    };
+    
+    let body = selectElement('.modal-bg');
+
+    body.classList.toggle('bg-active');
+  }
+
   return(
     <div className="preference-page">
-      <div className="input-content">
+      <div data-aos="fade-right" className="input-content">
 
         <h1 className="input-prompt">Please answer the questions below to help us find the best options for you.</h1>
         <p className="none-prompt">If you have no preference, please type "None".</p>
@@ -61,9 +72,29 @@ function PreferenceForm() {
         </div>
 
       </div>
-      <div className="blank-right">
-        <h1>{main}</h1>
-      </div>
+        <div className="blank-right">
+
+          <div className="popup-button">
+            <div className="button" id="button-3">
+              <div id="circle"></div>
+              <a href="#" onClick={() => PopUp()}>View Criteria</a>
+            </div>
+          </div>
+
+          <div className="modal-bg">
+            <div className="modal">
+              <h2>Information in our database:</h2>
+              <ul>
+                <li>Hey</li>
+                <li>Hey2</li>
+                <li>Hey3</li>
+                <li>Hey4</li>
+              </ul>
+              <p className="close" onClick={() => PopUp()}>&#x2613;</p>
+            </div>
+          </div>
+
+        </div>
     </div>
   );
 }
