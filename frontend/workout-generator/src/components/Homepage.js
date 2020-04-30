@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import FadeIn from 'react-fade-in';
 import Footer from './Footer';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
@@ -37,7 +38,7 @@ function Homepage() {
                 <a href="#" className="nav-link">Home</a>
               </li>
               <li className="nav-item">
-                <a href="#" className="nav-link">About</a>
+                <a href="#" className="nav-link">My Profile</a>
               </li>
               <li className="nav-item">
                 <a href="#" className="nav-link">Log In</a>
@@ -48,24 +49,26 @@ function Homepage() {
       </header>
       {/* END OF HEADER SECTION */}
       <section className="hero" id="hero">
-        <div className="container">
-          <h2 className="sub-headline">
-            Power In Variety.
-          </h2>
-          <img className="logo" src={Logo} alt="Logo" />
-          <div className="headline-description">
-            <div className="separator">
-              <div className="line line-left"></div>
-              <div className="asterisk">
-                <p>&#x26AC;</p>
+          <div className="container">
+            <FadeIn delay={350} transitionDuration={2000}>
+            <h2 className="sub-headline">
+              Power In Variety.
+            </h2>
+            <img className="logo" src={Logo} alt="Logo" />
+            </FadeIn>
+            <div className="headline-description">
+              <div className="separator">
+                <div className="line line-left"></div>
+                <div className="asterisk">
+                  <p>&#x26AC;</p>
+                </div>
+                <div className="line line-right"></div>
               </div>
-              <div className="line line-right"></div>
-            </div>
-            <div className="single-animation">
-              <Link to="/quote" className="btn cta-btn">transform</Link>
+              <div className="single-animation">
+                <Link to="/quote" className="btn cta-btn">transform</Link>
+              </div>
             </div>
           </div>
-        </div>
       </section>
       {/* END OF HERO SECTION */}
       <section className="the-point">
