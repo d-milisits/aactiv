@@ -67,19 +67,18 @@ function PreferenceForm() {
                   <div id="circle"></div>
                   <a href="#" onClick={e => clearStates()}>CLEAR</a>
             </div>
+            <div className="popup-button">
+            <div className="button" id="button-3">
+              <div id="circle"></div>
+              <a href="#" onClick={() => PopUp()}>View Criteria</a>
+            </div>
+          </div>
           </div>
 
         </div>
 
       </div>
         <div className="blank-right">
-
-          <div className="popup-button">
-            <div className="button" id="button-3">
-              <div id="circle"></div>
-              <a href="#" onClick={() => PopUp()}>View Criteria</a>
-            </div>
-          </div>
 
           <div className="modal-bg">
             <div className="modal">

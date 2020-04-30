@@ -13,6 +13,7 @@
   background-color: #dfe6e9;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .input-prompt {
@@ -20,7 +21,7 @@
   font-weight: 400;
   letter-spacing: 2px;
   color: black;
-  padding: 100px 50px 0 50px;
+  padding: 0 50px 0 50px;
 }
 .none-prompt {
   font-size: 1.5rem;
@@ -182,24 +183,6 @@
   flex-direction: row;
   padding:0;
   margin: 10% 0 0 0;
-}
-/* POPUP STYLING */
-.popup-button {
-  text-align: center;
-  padding-top: 12%;
-}
-.popup-button .button {
-  color: white;
-  border: 2px solid white;
-}
-.popup-button #circle {
-  background:white;
-}
-.popup-button #button-3:hover a {
-  color: black;
-}
-.popup-button a {
-  color:white;
 }
 /* POPUP STYLING */
 .modal-bg {
