@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Aos from 'aos';
 import './styles/PreferenceForm.css';
 
-function PreferenceForm() {
-
-  const [main, setMain] = useState("");
-  const [secondary, setSecondary] = useState("");
-  const [equip, setEquip] = useState("");
+function PreferenceForm({setMain, setSecondary, setEquip}) {
 
   // CLEAR BUTTON FUNCTIONALITY - Clears inputs and respective states.
   function clearStates() {
@@ -61,7 +58,7 @@ function PreferenceForm() {
           <div className="button-container">
             <div className="button" id="button-3">
                   <div id="circle"></div>
-                  <a href="#">SUBMIT</a>
+                  <Link to="/workout">SUBMIT</Link>
               </div>
               <div className="button" id="button-3">
                   <div id="circle"></div>
