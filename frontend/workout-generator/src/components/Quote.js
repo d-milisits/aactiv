@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Aos from 'aos';
 import './styles/Quote.css';
 
 function Quote() {
 
-  const [quote, setQuote] = useState([]);
+  const [quote, setQuote] = useState("");
 
   const getQuote = async () => {
     try {

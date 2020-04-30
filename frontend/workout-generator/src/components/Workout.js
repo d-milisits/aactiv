@@ -1,4 +1,5 @@
 import React from 'react';
+import NavBar from './NavBar';
 
 function Workout({main, secondary, equip}) {
 
@@ -10,6 +11,7 @@ function Workout({main, secondary, equip}) {
 
   return(
     <div>
+      <NavBar />
       <button onClick={() => Log()}>CLICK ME</button>
     </div>
   )
