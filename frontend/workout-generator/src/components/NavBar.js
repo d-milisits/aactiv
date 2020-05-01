@@ -19,7 +19,7 @@ function NavBar() {
       <header>
         <div className="container">
           <nav className="nav">
-            <h1 className="specific-aactiv"><Link to="/home">AACTIV</Link></h1>
+            <h1 className="specific-aactiv">AACTIV</h1>
             <div className="specific-menu-toggle">
               <p onClick={() => Animation()} className="menu">&#x2630;</p>   
               <p onClick={() => Animation()} className="times">&#x2716;</p>
