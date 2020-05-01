@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import NavBar from './NavBar';
 import Loading from './Loading';
+import Complete from './Complete';
 import Exercise from './Exercise';
 import './styles/Exercise.css';
 
@@ -13,20 +14,20 @@ function Workout({main, secondary, equip}) {
 
   setTimeout(() => {
     setLoading(false);
-  }, 5500);
+  }, 4575);
 
   const exercise_cards = exercises.map((exercise) => <div><Exercise/><br></br></div>);
 
   return(
     <div>
-      {
-      loading ? <Loading /> : 
-        <div className="thebody">
-          <NavBar />
-          <div className="exercise-card-container">
-            {exercise_cards}
-          </div>
+      {loading ? 
+      <Loading /> : 
+      <div className="thebody">
+        <NavBar />
+        <div className="exercise-card-container">
+          {exercise_cards}
         </div>
+      </div> 
       }
     </div>
   )

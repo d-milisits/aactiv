@@ -3,6 +3,7 @@ import './styles/Loading.css';
 import FadeIn from 'react-fade-in';
 
 function Loading() {
+
   return(
     <div>
       <FadeIn delay={650} transitionDuration={2500}>

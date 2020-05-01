@@ -20,9 +20,9 @@ body {
   width: calc(100% - 16px);
   height: calc(100% - 16px);
   border: 8px solid #162534;
-  border-top: 8px solid #ee5253;
+  border-top: 12px solid #ee5253;
   border-radius: 50%;
-  animation: rotate 5s linear infinite;
+  animation: rotate 2s linear infinite;
   margin:auto;
   padding-top:70%;
 }
