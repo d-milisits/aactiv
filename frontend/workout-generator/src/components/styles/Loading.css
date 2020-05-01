@@ -11,7 +11,7 @@ body {
   width: 200px;
   height: 200px;
   position: relative;
-  top: 50%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   overflow:hidden;
@@ -28,4 +28,13 @@ body {
 }
 @keyframes rotate {
   100% {transform: rotate(360deg);}
+}
+.generating {
+  color:black;
+  font-family: 'Roboto Condensed';
+  font-weight: 200;
+  letter-spacing: 4px;
+  padding-top: 40vh;
+  text-align: center;
+  text-transform: uppercase;
 }

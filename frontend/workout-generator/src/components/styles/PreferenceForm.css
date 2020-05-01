@@ -197,7 +197,7 @@
   align-items: center;
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s, opacity 0.5s;
+  transition: visibility 0s, opacity 1.5s;
 }
 .bg-active {
   visibility: visible;
@@ -205,12 +205,12 @@
 }
 .modal {
   background-color: white;
-  width: 40%;
-  height: 50%;
+  min-width: 40%;
+  min-height: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  /* flex-direction: column; */
   position: relative;
 }
 .close {
@@ -219,4 +219,17 @@
   right:20px;
   font-weight:bold;
   cursor:pointer;
+}
+.list-container {
+  padding:100px 25px 100px 100px;
+}
+.list-container h2 {
+  padding: 30px 30px 30px 0;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing:2px;
+}
+.list-container li {
+  font-weight:200;
+  letter-spacing: 2px;
 }

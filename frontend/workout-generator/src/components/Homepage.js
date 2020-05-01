@@ -50,7 +50,7 @@ function Homepage() {
       {/* END OF HEADER SECTION */}
       <section className="hero" id="hero">
           <div className="container">
-            <FadeIn delay={350} transitionDuration={2000}>
+            <FadeIn delay={375} transitionDuration={2500}>
             <h2 className="sub-headline">
               Power In Variety.
             </h2>

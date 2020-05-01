@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Aos from 'aos';
 import './styles/Quote.css';
@@ -6,8 +6,10 @@ import './styles/Quote.css';
 function Quote() {
 
   const [quote, setQuote] = useState("");
+  const [toggle, setToggle] = useState(false);
 
   const getQuote = async () => {
+    setToggle(true);
     try {
       const quotes = await fetch("http://localhost:5000/api/quote");
       const output = await quotes.json();
@@ -38,16 +40,19 @@ function Quote() {
       </div>
       <div className="quote">
         <h1 className="quote-content">{quote}</h1>
-        <div className="continue-container">
-          <div className="button" id="button-3">
-              <div id="circle"></div>
-              <a href="#" onClick={e => getQuote()}>ONE MORE</a>
-            </div>
+        {toggle ? 
+          <div data-aos="fade-up" className="continue-container">
             <div className="button" id="button-3">
-              <div id="circle"></div>
-              <Link to="/preferences">CONTINUE</Link>
-            </div>
-        </div>
+                <div id="circle"></div>
+                <a href="#" onClick={e => getQuote()}>ONE MORE</a>
+              </div>
+              <div className="button" id="button-3">
+                <div id="circle"></div>
+                <Link to="/preferences">CONTINUE</Link>
+              </div>
+          </div> :
+          null
+      }
       </div>
     </div>
   );

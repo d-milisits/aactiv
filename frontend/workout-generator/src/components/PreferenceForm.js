@@ -35,21 +35,21 @@ function PreferenceForm({setMain, setSecondary, setEquip}) {
         <div className="input-field-list">
 
           <label class="field a-field a-field_a3">
-            <input id="input" class="field__input a-field__input" placeholder="e.g. 'Back'" onChange={e => setMain(e.target.value)} required/>
+            <input id="input" class="field__input a-field__input" autocomplete="off" placeholder="e.g. 'Back'" onChange={e => setMain(e.target.value)} required/>
             <span class="a-field__label-wrap">
               <span class="a-field__label">Main Muscle Group?</span>
             </span>
           </label><br></br>
 
           <label class="field a-field a-field_a3">
-            <input id="input2" class="field__input a-field__input" placeholder="e.g. 'Biceps'" onChange={e => setSecondary(e.target.value)} required/>
+            <input id="input2" class="field__input a-field__input" autocomplete="off" placeholder="e.g. 'Biceps'" onChange={e => setSecondary(e.target.value)} required/>
             <span class="a-field__label-wrap">
               <span class="a-field__label">Secondary Muscle Group?</span>
             </span>
           </label><br></br>
 
           <label class="field a-field a-field_a3">
-            <input id="input3" class="field__input a-field__input" placeholder="e.g. Dumbbells" onChange={e => setEquip(e.target.value)} required/>
+            <input id="input3" class="field__input a-field__input" autocomplete="off" placeholder="e.g. Dumbbells" onChange={e => setEquip(e.target.value)} required/>
             <span class="a-field__label-wrap">
               <span class="a-field__label">Equipment Preference?</span>
             </span>
@@ -67,7 +67,7 @@ function PreferenceForm({setMain, setSecondary, setEquip}) {
             <div className="popup-button">
             <div className="button" id="button-3">
               <div id="circle"></div>
-              <a href="#" onClick={() => PopUp()}>View Criteria</a>
+              <a href="#" onClick={() => PopUp()}>View Groups</a>
             </div>
           </div>
           </div>
@@ -79,13 +79,26 @@ function PreferenceForm({setMain, setSecondary, setEquip}) {
 
           <div className="modal-bg">
             <div className="modal">
-              <h2>Information in our database:</h2>
-              <ul>
-                <li>Hey</li>
-                <li>Hey2</li>
-                <li>Hey3</li>
-                <li>Hey4</li>
-              </ul>
+              <div className="list-container">
+                <h2 className="title">Main Muscle Groups:</h2>
+                <ul className="list">
+                  <li>Back</li>
+                  <li>Biceps</li>
+                  <li>Triceps</li>
+                  <li>Shoulders</li>
+                  <li>Abs</li>
+                  <li>Chest</li>
+                </ul>
+              </div>
+              <div className="list-container">
+                <h2 className="title">Equipment Groups:</h2>
+                <ul className="list">
+                  <li>Barbell</li>
+                  <li>Dumbbell</li>
+                  <li>Cables</li>
+                  <li>Bodyweight</li>
+                </ul> 
+              </div>
               <p className="close" onClick={() => PopUp()}>&#x2613;</p>
             </div>
           </div>
