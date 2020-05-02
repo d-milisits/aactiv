@@ -40,7 +40,7 @@ function Workout({main, secondary, equip}) {
         <div className="exercise-card-container">
           <h1 onClick={e => getWorkout()} >Test</h1><br></br>
           {exercises.map(exercise => (
-            <div><Exercise name={exercise[1]} /><br></br></div>
+            <div><Exercise name={exercise[1]} part={exercise[7]} preparation={exercise[4]} instructions={exercise[5]} /><br></br></div>
           ))}
         </div>
       </div>}
