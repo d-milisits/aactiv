@@ -12,6 +12,7 @@ function App() {
   const [main, setMain] = useState("");
   const [secondary, setSecondary] = useState("");
   const [equip, setEquip] = useState("");
+  const [name, setName] = useState("");
 
   // console.log(main);
   // console.log(secondary);
