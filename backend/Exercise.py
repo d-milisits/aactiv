@@ -31,6 +31,15 @@ class Exercise:
       cur.execute(sql)
       exercises = cur.fetchall()
       return exercises
+  
+  @classmethod 
+  def exercise_by_name(cls, pk, part):
+    with sqlite3.connect(cls.dbpath) as conn:
+      cur=conn.cursor()
+      sql = """SELECT * FROM exercises WHERE pk=? AND part=?;"""
+      cur.execute(sql, (pk,part))
+      exercise = cur.fetchone()
+      return exercise
 
 # if __name__ == "__main__":
 #   test = Exercise(name="Shoulder Press", part="back", equipment="cables", prep="Just do it", instruction="Here are the instructions", video="Here's the video", targets="Targets")
