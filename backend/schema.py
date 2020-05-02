@@ -7,6 +7,8 @@ def schema(dbpath="data.db"):
     sql = """CREATE TABLE exercises(
       pk INTEGER PRIMARY KEY AUTOINCREMENT,
       name VARCHAR(50),
+      part VARCHAR(25),
+      equipment VARCHAR(25),
       prep TEXT,
       instruction TEXT,
       video VARCHAR(50),

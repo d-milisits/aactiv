@@ -31,14 +31,20 @@ def insert_exercise_info(url):
       break
     # Break to stop at first iteration, as first value is main target muscles.
 
-  # print(name)
-  # print(prep)
-  # print(instruction)
-  # print(video)
-  # print(targets)
+  print(name)
+  print(prep)
+  print(instruction)
+  print(video)
+  print(targets)
+  print("")
 
   # Inserts extracted data into database.
-  new_exercise = Exercise(name=str(name), prep=str(prep), instruction=str(instruction), video=str(video), targets=str(targets))
+  new_exercise = Exercise(name=str(name), part="calves", equipment="dumbbell", prep=str(prep), instruction=str(instruction), video=str(video), targets=str(targets))
   new_exercise.insert()
 
-insert_exercise_info("https://exrx.net/WeightExercises/LatissimusDorsi/CBUnderhandChinup")
+# insert_exercise_info("https://exrx.net/WeightExercises/Gastrocnemius/DBStandingCalfRaise")
+# insert_exercise_info("https://exrx.net/WeightExercises/Gastrocnemius/DBSingleLegCalfRaise")
+# insert_exercise_info("https://exrx.net/WeightExercises/Brachioradialis/CBReversePreacherCurl")
+# insert_exercise_info("https://exrx.net/WeightExercises/Hamstrings/CBStraightLegDeadlift")
+# insert_exercise_info("https://exrx.net/WeightExercises/Hamstrings/BBStraightLegDeadlift")
+# insert_exercise_info("https://exrx.net/WeightExercises/Triceps/CBTriExt")
