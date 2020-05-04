@@ -20,20 +20,39 @@ Calves: 101-106
 app = Flask(__name__)
 CORS(app)
 
+@app.route("/api/exercises")
+def view_exercises():
+  exercise_list = Exercise.view_exercises()
+  return jsonify({"exercises":exercise_list})
+
+@app.route("/api/quote")
+def view_quote():
+  quote = Quote.select_random_quote()
+  return jsonify({"quote":quote})
+
+# Ensures that selected backend elements are unique and adds them to workout.
+# def checkGenerate(lift, workoutlist, pk, pklist):
+#   if lift not in workoutlist and pk not in pklist:
+#     workoutlist.append(lift)
+#     pklist.append(pk)
+
 @app.route("/api/generate", methods=["POST"])
 def generate_workout():
+
   workout_list = []
+
   # Get JSON values from Post Request sent from Workout.js.
   data = request.get_json()
   main = data.get("main")
   secondary = data.get("secondary")
   # Select workout by random PK(ID) where name=main and secondary. Main=4 Exercises. Secondary=2 Exercises.
-  for i in range(4):
+  while len(workout_list) < 4:
     if (main=="shoulders"):
       rand_num = randint(1,15)
       lift = Exercise.exercise_by_name(rand_num, main)
       if lift not in workout_list:
         workout_list.append(lift)
+      # checkGenerate(lift, workout_list, rand_num, pk_list)
     elif (main=="biceps"):
       rand_num = randint(16,27)
       lift = Exercise.exercise_by_name(rand_num, main)
@@ -74,64 +93,56 @@ def generate_workout():
       lift = Exercise.exercise_by_name(rand_num, main)
       if lift not in workout_list:
         workout_list.append(lift)
-  for i in range(2):
-    if (secondary=="shoulders"):
-      rand_num = randint(1,15)
-      lift = Exercise.exercise_by_name(rand_num, secondary)
-      if lift not in workout_list:
-        workout_list.append(lift)
-    elif (secondary=="biceps"):
-      rand_num = randint(16,27)
-      lift = Exercise.exercise_by_name(rand_num, secondary)
-      if lift not in workout_list:
-        workout_list.append(lift)
-    elif (secondary=="triceps"):
-      rand_num = randint(28,40)
-      lift = Exercise.exercise_by_name(rand_num, secondary)
-      if lift not in workout_list:
-        workout_list.append(lift)
-    elif (secondary=="back"):
-      rand_num = randint(41,55)
-      lift = Exercise.exercise_by_name(rand_num, secondary)
-      if lift not in workout_list:
-        workout_list.append(lift)
-    elif (secondary=="chest"):
-      rand_num = randint(56,70)
-      lift = Exercise.exercise_by_name(rand_num, secondary)
-      if lift not in workout_list:
-        workout_list.append(lift)
-    elif (secondary=="quads"):
-      rand_num = randint(71,83)
-      lift = Exercise.exercise_by_name(rand_num, secondary)
-      if lift not in workout_list:
-        workout_list.append(lift)
-    elif (secondary=="hams"):
-      rand_num = randint(84,94)
-      lift = Exercise.exercise_by_name(rand_num, secondary)
-      if lift not in workout_list:
-        workout_list.append(lift)
-    elif (secondary=="forearms"):
-      rand_num = randint(95,100)
-      lift = Exercise.exercise_by_name(rand_num, secondary)
-      if lift not in workout_list:
-        workout_list.append(lift)
-    elif (secondary=="calves"):
-      rand_num = randint(101,106)
-      lift = Exercise.exercise_by_name(rand_num, secondary)
-      if lift not in workout_list:
-        workout_list.append(lift)
+  if len(workout_list) >= 4:
+    while len(workout_list) < 6:
+      if (secondary=="shoulders"):
+        rand_num = randint(1,15)
+        lift = Exercise.exercise_by_name(rand_num, secondary)
+        if lift not in workout_list:
+          workout_list.append(lift)
+      elif (secondary=="biceps"):
+        rand_num = randint(16,27)
+        lift = Exercise.exercise_by_name(rand_num, secondary)
+        if lift not in workout_list:
+          workout_list.append(lift)
+      elif (secondary=="triceps"):
+        rand_num = randint(28,40)
+        lift = Exercise.exercise_by_name(rand_num, secondary)
+        if lift not in workout_list:
+          workout_list.append(lift)
+      elif (secondary=="back"):
+        rand_num = randint(41,55)
+        lift = Exercise.exercise_by_name(rand_num, secondary)
+        if lift not in workout_list:
+          workout_list.append(lift)
+      elif (secondary=="chest"):
+        rand_num = randint(56,70)
+        lift = Exercise.exercise_by_name(rand_num, secondary)
+        if lift not in workout_list:
+          workout_list.append(lift)
+      elif (secondary=="quads"):
+        rand_num = randint(71,83)
+        lift = Exercise.exercise_by_name(rand_num, secondary)
+        if lift not in workout_list:
+          workout_list.append(lift)
+      elif (secondary=="hams"):
+        rand_num = randint(84,94)
+        lift = Exercise.exercise_by_name(rand_num, secondary)
+        if lift not in workout_list:
+          workout_list.append(lift)
+      elif (secondary=="forearms"):
+        rand_num = randint(95,100)
+        lift = Exercise.exercise_by_name(rand_num, secondary)
+        if lift not in workout_list:
+          workout_list.append(lift)
+      elif (secondary=="calves"):
+        rand_num = randint(101,106)
+        lift = Exercise.exercise_by_name(rand_num, secondary)
+        if lift not in workout_list:
+          workout_list.append(lift)
+
   print(workout_list)
   return jsonify({"workout":workout_list})
-
-@app.route("/api/exercises")
-def view_exercises():
-  exercise_list = Exercise.view_exercises()
-  return jsonify({"exercises":exercise_list})
-
-@app.route("/api/quote")
-def view_quote():
-  quote = Quote.select_random_quote()
-  return jsonify({"quote":quote})
 
 if __name__ == "__main__":
   app.run(debug=True)
