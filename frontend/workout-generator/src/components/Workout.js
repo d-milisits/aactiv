@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import NavBar from './NavBar';
 import Loading from './Loading';
 import Exercise from './Exercise';
@@ -31,6 +31,10 @@ function Workout({main, secondary, equip}) {
     setLoading(false);
   }, 4575);
 
+  useEffect(() => {
+    getWorkout();
+  }, [])
+
   return(
     <div>
       {loading ? 
@@ -38,9 +42,9 @@ function Workout({main, secondary, equip}) {
       <div className="thebody">
         <NavBar />
         <div className="exercise-card-container">
-          <h1 onClick={e => getWorkout()} >Test</h1><br></br>
+          {/* <h1 onClick={e => getWorkout()} >Test</h1><br></br> */}
           {exercises.map(exercise => (
-            <div><Exercise name={exercise[1]} part={exercise[7]} preparation={exercise[4]} instructions={exercise[5]} /><br></br></div>
+            <div><Exercise name={exercise[1]} part={exercise[7]} preparation={exercise[4]} instructions={exercise[5]} video={exercise[6]} /><br></br></div>
           ))}
         </div>
       </div>}

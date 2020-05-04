@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './styles/Exercise.css';
 import Aos from 'aos';
 
-function Exercise({name, part, preparation, instructions}) {
+function Exercise({name, part, preparation, instructions, video}) {
 
   function PopUp() {
     const selectElement = function (element) {
@@ -12,7 +12,10 @@ function Exercise({name, part, preparation, instructions}) {
     let body = selectElement('.modal-bg');
 
     body.classList.toggle('bg-active');
-    console.log(preparation);
+  }
+
+  function Log() {
+    console.log(instructions);
   }
 
   return(
@@ -20,29 +23,20 @@ function Exercise({name, part, preparation, instructions}) {
 
       <div className="modal-bg">
         <div className="modal">
-
-          <div className="workout-list-container">
-            <h2 className="title">Preparation:</h2>
-            <p>{preparation}</p>
-          </div>
-
-          <div className="workout-list-container">
-            <h2 className="title">Instructions:</h2>
-            <p>{instructions}</p>
-          </div>
-
           <p className="close" onClick={() => PopUp()}>&#x2613;</p>
-
+          <p>{instructions}</p>
         </div>
       </div>
 
       <div data-aos="fade-up" class="card-container">
-        <div class="card">
+        <div class="card" onClick={() => Log()}>
           <div class="content">
             <h2>{name}</h2>
-            <p>Muscles Worked: {part}</p>
-            <a href="#" onClick={() => PopUp()}>View Instructions</a>
+            <p className="part"><span>Muscles Worked:</span><br></br><br></br>{part}</p>
+            <p className="preparation"><span>Preparation:</span><br></br><br></br>{preparation}</p>
+            <p className="instructions"><span>Instructions:</span><br></br><br></br>{instructions}</p>
           </div>
+          <a className="view" href="#" onClick={() => PopUp()}>More Info</a>
         </div>
       </div>
 
