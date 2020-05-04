@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
+import { BrowserRouter, Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Aos from 'aos';
 import './styles/PreferenceForm.css';
 
-function PreferenceForm({setMain, setSecondary, setEquip}) {
+function PreferenceForm({setMain, setSecondary, setEquip, main, secondary, equip}) {
+
+  const [error, setError] = useState(false);
+  const [pass, setPass] = useState(false);
+
+  console.log(main);
+  console.log(secondary);
+  console.log(equip);
 
   // CLEAR BUTTON FUNCTIONALITY - Clears inputs and respective states.
   function clearStates() {
@@ -15,6 +23,7 @@ function PreferenceForm({setMain, setSecondary, setEquip}) {
     setEquip("");
   }
 
+  // PopUp Modal to show valid selections.
   function PopUp() {
     const selectElement = function (element) {
       return document.querySelector(element);
@@ -25,12 +34,28 @@ function PreferenceForm({setMain, setSecondary, setEquip}) {
     body.classList.toggle('bg-active');
   }
 
+  // Function to check if inputs are valid. Returns error message if not.
+  function Check() {
+    let equip_list = ["barbell", "dumbbell", "cables", "none"];
+    let part_list = ["chest", "back", "shoulders", "biceps", "triceps", "calves", "forearms", "glutes", "hams"];
+    if ( (!equip_list.includes(equip)) || (!part_list.includes(main)) || (!part_list.includes(secondary)) ) {
+      setError(true);
+    }
+    else {
+      setError(false);
+      setPass(true);
+    }
+  }
+
   return(
     <div className="preference-page">
       <div data-aos="fade-right" className="input-content">
 
         <h1 className="input-prompt">Please answer the questions below to help us find the best options for you.</h1>
+        { error ? 
+        <p className="error-prompt">Please type a valid input. Check criteria if needed.</p> :
         <p className="none-prompt">If you have no preference, please type "None".</p>
+        }
 
         <div className="input-field-list">
 
@@ -58,7 +83,12 @@ function PreferenceForm({setMain, setSecondary, setEquip}) {
           <div className="button-container">
             <div className="button" id="button-3">
                   <div id="circle"></div>
-                  <Link to="/workout">SUBMIT</Link>
+                  {/* Checks if inputs are valid. If not, error. If pass=true, route to workout. */}
+                  <a href="#" onClick={() => Check()}>SUBMIT</a>
+                  { pass ? 
+                    <Redirect from="/preferences" to="/workout" /> :
+                    null
+                  }
               </div>
               <div className="button" id="button-3">
                   <div id="circle"></div>
@@ -96,7 +126,7 @@ function PreferenceForm({setMain, setSecondary, setEquip}) {
                   <li>Barbell</li>
                   <li>Dumbbell</li>
                   <li>Cables</li>
-                  <li>Bodyweight</li>
+                  <li>NONE</li>
                 </ul> 
               </div>
               <p className="close" onClick={() => PopUp()}>&#x2613;</p>

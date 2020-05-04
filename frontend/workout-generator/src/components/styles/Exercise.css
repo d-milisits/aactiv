@@ -124,6 +124,6 @@
 }
 .view {
     position:absolute;
-    z-index:1;
+    z-index:3;
     bottom: 6%;
 }

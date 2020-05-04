@@ -26,7 +26,7 @@ function App() {
           <Quote />
         </Route>
         <Route path="/preferences">
-          <PreferenceForm setMain={setMain} setSecondary={setSecondary} setEquip={setEquip} />
+          <PreferenceForm setMain={setMain} setSecondary={setSecondary} setEquip={setEquip} main={main} secondary={secondary} equip={equip} />
         </Route>
         <Route path="/workout">
           <Workout main={main} secondary={secondary} equip={equip} />

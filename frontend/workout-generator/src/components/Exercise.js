@@ -1,10 +1,11 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import './styles/Exercise.css';
 import Aos from 'aos';
 
 function Exercise({name, part, preparation, instructions, video}) {
 
   function PopUp() {
+    console.log(instructions);
     const selectElement = function (element) {
       return document.querySelector(element);
     };
@@ -12,11 +13,12 @@ function Exercise({name, part, preparation, instructions, video}) {
     let body = selectElement('.modal-bg');
 
     body.classList.toggle('bg-active');
-  }
-
-  function Log() {
     console.log(instructions);
   }
+
+  // function Log() {
+  //   console.log(instructions);
+  // }
 
   return(
     <div>
@@ -29,7 +31,7 @@ function Exercise({name, part, preparation, instructions, video}) {
       </div>
 
       <div data-aos="fade-up" class="card-container">
-        <div class="card" onClick={() => Log()}>
+        <div class="card">
           <div class="content">
             <h2>{name}</h2>
             <p className="part"><span>Muscles Worked:</span><br></br><br></br>{part}</p>

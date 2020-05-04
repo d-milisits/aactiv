@@ -42,7 +42,6 @@ function Workout({main, secondary, equip}) {
       <div className="thebody">
         <NavBar />
         <div className="exercise-card-container">
-          {/* <h1 onClick={e => getWorkout()} >Test</h1><br></br> */}
           {exercises.map(exercise => (
             <div><Exercise name={exercise[1]} part={exercise[7]} preparation={exercise[4]} instructions={exercise[5]} video={exercise[6]} /><br></br></div>
           ))}
