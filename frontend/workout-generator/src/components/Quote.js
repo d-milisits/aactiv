@@ -23,8 +23,10 @@ function Quote() {
   return (
     <div className="quote-page">
       
-      <div id="videoBG">
-        <iframe src="https://player.vimeo.com/video/414985099?autoplay=1&loop=1&color=ffffff" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      <div className="wrapper">
+        <div className="video-container">
+          <iframe src="https://player.vimeo.com/video/414985099?autoplay=1&loop=1&color=ffffff"frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        </div>
       </div>
 
       <div data-aos="fade-right" className="prompt-content">

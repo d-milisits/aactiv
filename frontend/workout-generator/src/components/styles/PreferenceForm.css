@@ -2,9 +2,17 @@
   display:flex;
   width:100%;
   height:100vh;
-  background: url("../../img/boxing.jpg") center no-repeat;
+  /* background: url("../../img/boxing.jpg") center no-repeat; */
   background-size: cover;
   font-family: 'Roboto Condensed';
+}
+@media (max-width: 767px) {
+  .video-container {
+    display:none;
+  }
+  .quote-page {
+    background: url("../../img/boxing.jpg") center no-repeat;
+  }
 }
 .input-content, .blank-right {
   flex: 1;
