@@ -9,17 +9,23 @@ function SignUp() {
   const [username, setUsername] = useState("");
   const [confirm, setConfirm] = useState("");
   const [signUp, setsignUp] = useState(true);
+  const [error, setError] = useState(false);
 
   const createAccount = async () => {
     const data = JSON.stringify({username:username, password:password});
-    await fetch('http://localhost:5000/api/create', {
+    const status = await fetch('http://localhost:5000/api/create', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       body:data
-    });
+    })
+    const output = await status.json();
+    let response = output.created;
+    if (response==="failed") {
+      setError(true);
+    }
   }
 
   return (
@@ -30,6 +36,11 @@ function SignUp() {
       <div data-aos="fade-down" className="login-box">
 
         <img src={Logo} alt="logo"/>
+
+        { error ? 
+        <p className="error-prompt">Account already exists! Please try again.</p> :
+        null
+        }
 
         <label class="field a-field a-field_a3">
             <input id="input" class="field__input a-field__input" autocomplete="off" placeholder="Enter name here" onChange={e => setUsername(e.target.value)} required/>

@@ -15,11 +15,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: -10vh;
+  margin: -10vh 0;
 }
 .login-box img {
-  height:300px;
-  width:300px;
+  height:275px;
+  width:275px;
+  margin-top: -7.5vh;
   margin-bottom: -5vh;
 }
 .login-box .button {
@@ -27,4 +28,8 @@
 }
 .login-box .signup {
   padding-top:30px;
+}
+.login .error-prompt {
+  padding:0;
+  font-size: 1.2rem;
 }
