@@ -5,6 +5,7 @@ from Quote import Quote
 from util import hash_password
 from Users import Users
 from random import randint
+from sqlite3 import IntegrityError
 
 """
 ***ID RANGES***
@@ -39,8 +40,12 @@ def create_account():
   password = data.get("password")
   password_hash = hash_password(password)
   new_user = Users(username=username, password_hash=password_hash)
-  new_user.add_user()
-  return jsonify({"created":"success"})
+  try: 
+    new_user.add_user()
+    return jsonify({"created":"success"})
+  except IntegrityError:
+    print("Account already exists!")
+    return jsonify({"created":"failed"})
 
 @app.route("/api/generate", methods=["POST"])
 def generate_workout():
