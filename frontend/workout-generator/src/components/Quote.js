@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Video from '../img/180419_Boxing_13_01.mp4';
 import Aos from 'aos';
 import './styles/Quote.css';
 
@@ -23,10 +22,10 @@ function Quote() {
 
   return (
     <div className="quote-page">
-
-      <video id="videoBG" autoPlay muted loop>
-        <source src={Video} type="video/mp4"/>
-      </video>
+      
+      <div id="videoBG">
+        <iframe src="https://player.vimeo.com/video/414985099?autoplay=1&loop=1&color=ffffff" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
 
       <div data-aos="fade-right" className="prompt-content">
         <h1 className="quote-prompt">Before we begin, it is our belief that being motivated
