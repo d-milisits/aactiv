@@ -2,8 +2,26 @@
   display:flex;
   width:100%;
   height:100vh;
-  background: url("../../img/boxing.jpg") center no-repeat;
+  /* background: url("../../img/boxing.jpg") center no-repeat; */
   background-size: cover;
+}
+#videoBG {
+  position: fixed;
+  z-index: -1;
+}
+@media (min-aspect-ratio: 16/9) {
+  #videoBG {
+    width:100%;
+    height: auto;
+  }
+}
+@media (max-width: 767px) {
+  #videoBG {
+    display:none;
+  }
+  .quote-page {
+    background: url("../../img/boxing.jpg") center no-repeat;
+  }
 }
 .prompt-content, .quote {
   flex:1;

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Video from '../img/180419_Boxing_13_01.mp4';
 import Aos from 'aos';
 import './styles/Quote.css';
 
@@ -22,6 +23,11 @@ function Quote() {
 
   return (
     <div className="quote-page">
+
+      <video id="videoBG" autoPlay muted loop>
+        <source src={Video} type="video/mp4"/>
+      </video>
+
       <div data-aos="fade-right" className="prompt-content">
         <h1 className="quote-prompt">Before we begin, it is our belief that being motivated
           is key to a successful day.
