@@ -5,7 +5,7 @@ import FadeIn from 'react-fade-in';
 function Loading() {
 
   return(
-    <div>
+    <div className="loading">
       <FadeIn delay={650} transitionDuration={2500}>
       <body>
         <div className="loader-container">

@@ -9,7 +9,7 @@ header {
   color: WHITE;
 }
 .specific-aactiv:hover {
-  color: black;
+  color: #ee5253;
   cursor: pointer;
 }
 .specific-menu-toggle {

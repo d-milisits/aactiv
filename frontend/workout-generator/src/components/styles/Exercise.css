@@ -1,7 +1,10 @@
+.loading {
+    background-color: #353b48;
+}
 .thebody
 {
     min-height: 100vh;
-    background: linear-gradient(0deg,#fff 50%, #95afc0);
+    background-color: #353b48;
 }
 .exercise-card-container {
   padding-top: 15vh;
