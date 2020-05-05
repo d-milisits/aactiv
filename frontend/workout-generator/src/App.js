@@ -10,10 +10,12 @@ import LogIn from './components/LogIn';
 function App() {
 
   // States manipulated in preference form.
-
   const [main, setMain] = useState("");
   const [secondary, setSecondary] = useState("");
   const [equip, setEquip] = useState("");
+  // Username/password for SignIn form.
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
 
   return (
     <div className="App">
@@ -32,7 +34,7 @@ function App() {
           <Workout main={main} secondary={secondary} equip={equip} />
         </Route>
         <Route path="/login">
-          <LogIn />
+          <LogIn setUsername={setUsername} setPassword={setPassword} />
         </Route>
       </BrowserRouter>
     </div>

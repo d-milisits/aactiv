@@ -3,10 +3,8 @@ import SignUp from './SignUp';
 import Logo from '../img/just-logo.png';
 import './styles/LogIn.css';
 
-function LogIn() {
+function LogIn({setUsername, setPassword}) {
 
-  const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
   const [signUp, setsignUp] = useState(false);
 
   return (

@@ -2,6 +2,8 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 from Exercise import Exercise
 from Quote import Quote
+from util import hash_password
+from Users import Users
 from random import randint
 
 """
@@ -30,11 +32,15 @@ def view_quote():
   quote = Quote.select_random_quote()
   return jsonify({"quote":quote})
 
-# Ensures that selected backend elements are unique and adds them to workout.
-# def checkGenerate(lift, workoutlist, pk, pklist):
-#   if lift not in workoutlist and pk not in pklist:
-#     workoutlist.append(lift)
-#     pklist.append(pk)
+@app.route("/api/create", methods=["POST"])
+def create_account():
+  data = request.get_json()
+  username = data.get("username")
+  password = data.get("password")
+  password_hash = hash_password(password)
+  new_user = Users(username=username, password_hash=password_hash)
+  new_user.add_user()
+  return jsonify({"created":"success"})
 
 @app.route("/api/generate", methods=["POST"])
 def generate_workout():

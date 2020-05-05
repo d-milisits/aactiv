@@ -50,11 +50,11 @@ function PreferenceForm({setMain, setSecondary, setEquip, main, secondary, equip
   return(
     <div className="preference-page">
       
-      <div className="wrapper">
+      {/* <div className="wrapper">
         <div className="video-container">
           <iframe src="https://player.vimeo.com/video/415010343?autoplay=1&loop=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
         </div>
-      </div>
+      </div> */}
 
       <div data-aos="fade-right" className="input-content">
 
