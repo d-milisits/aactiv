@@ -32,7 +32,7 @@ function NavBar() {
                 <a href="#" className="nav-link">My Profile</a>
               </li>
               <li className="nav-item">
-                <a href="#" className="nav-link">Log In</a>
+                <Link to="/login" className="nav-link">Log In</Link>
               </li>
             </ul>
           </nav>

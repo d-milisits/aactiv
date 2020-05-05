@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import { BrowserRouter, Redirect, Route } from 'react-router-dom';
 import './App.css';
-import Exercises from './components/Exercises';
 import Homepage from './components/Homepage';
 import Quote from './components/Quote';
 import PreferenceForm from './components/PreferenceForm';
 import Workout from './components/Workout';
+import LogIn from './components/LogIn';
 
 function App() {
 
@@ -30,6 +30,9 @@ function App() {
         </Route>
         <Route path="/workout">
           <Workout main={main} secondary={secondary} equip={equip} />
+        </Route>
+        <Route path="/login">
+          <LogIn />
         </Route>
       </BrowserRouter>
     </div>
