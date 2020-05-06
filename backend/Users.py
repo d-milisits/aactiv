@@ -30,6 +30,3 @@ class Users:
       if user:
         return cls(**user)
       return None
-
-# if __name__ == "__main__":
-#   ?

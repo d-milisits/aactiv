@@ -23,13 +23,18 @@ function LogIn() {
       body: data
     })
     const output = await status.json();
+    // Status checks if login failed or was a success. User is the username returned when successful that is then stored in session storage.
     let response = output.status 
+    let user = output.username
       if (response==="failed") {
         setError(true);
         setSuccess(false);
       } else if (response==="success") {
         setError(false);
         setSuccess(true);
+        localStorage.setItem('username', user);
+        let session = localStorage.getItem('username')
+        console.log(`This session username is ${session}.`);
       }
     }
   

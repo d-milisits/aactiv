@@ -21,6 +21,8 @@ function Homepage() {
 
   useEffect(() => {
       Aos.init({duration: 3000});
+      // let session = localStorage.getItem('username')
+      // console.log(`This session username is ${session}.`);
     }, [  ]);
 
   return(

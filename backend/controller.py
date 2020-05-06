@@ -60,7 +60,7 @@ def login():
   if account == None:
     print("Account not found")
     return jsonify({"status":"failed"})
-  return jsonify({"status":"success"})
+  return jsonify({"status":"success", "username":username})
 
 @app.route("/api/generate", methods=["POST"])
 def generate_workout():
