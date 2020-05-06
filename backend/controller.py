@@ -47,6 +47,21 @@ def create_account():
     print("Account already exists!")
     return jsonify({"created":"failed"})
 
+@app.route("/api/login", methods=["POST"])
+def login():
+  data = request.get_json()
+  username = data.get("username")
+  password = data.get("password")
+  password_hash = hash_password(password)
+  account = Users.login(username, password_hash)
+  print(username)
+  print(password_hash)
+  print(account)
+  if account == None:
+    print("Account not found")
+    return jsonify({"status":"failed"})
+  return jsonify({"status":"success"})
+
 @app.route("/api/generate", methods=["POST"])
 def generate_workout():
 

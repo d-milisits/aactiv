@@ -3,9 +3,36 @@ import SignUp from './SignUp';
 import Logo from '../img/just-logo.png';
 import './styles/LogIn.css';
 
-function LogIn({setUsername, setPassword}) {
+function LogIn() {
 
   const [signUp, setsignUp] = useState(false);
+  // Username/password for SignIn form.
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const login = async () => {
+    const data = JSON.stringify({username:username, password:password});
+    const status = await fetch('http://localhost:5000/api/login', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: data
+    })
+    const output = await status.json();
+    let response = output.status 
+      if (response==="failed") {
+        setError(true);
+        setSuccess(false);
+      } else if (response==="success") {
+        setError(false);
+        setSuccess(true);
+      }
+    }
+  
 
   return (
     <div>
@@ -15,15 +42,24 @@ function LogIn({setUsername, setPassword}) {
 
           <img src={Logo} alt="logo"/>
 
+          { error ? 
+          <p className="error-prompt">Account not found. Please try again.</p> :
+          null
+          }
+          { success ? 
+          <p className="success-prompt">Thank you for logging in, {username}! Redirecting now.</p> :
+          null
+          }
+
           <label class="field a-field a-field_a3">
-              <input id="input" class="field__input a-field__input" autocomplete="off" placeholder="Enter name here" onChange={e => setPassword(e.target.value)} required/>
+              <input id="input" class="field__input a-field__input" autocomplete="off" placeholder="Enter name here" onChange={e => setUsername(e.target.value)} required/>
               <span class="a-field__label-wrap">
                 <span class="a-field__label">Username</span>
               </span>
             </label><br></br>
 
           <label class="field a-field a-field_a3">
-            <input id="input2" type="password" class="field__input a-field__input" autocomplete="off" placeholder="Enter password here" onChange={e => setUsername(e.target.value)} required/>
+            <input id="input2" type="password" class="field__input a-field__input" autocomplete="off" placeholder="Enter password here" onChange={e => setPassword(e.target.value)} required/>
             <span class="a-field__label-wrap">
               <span class="a-field__label">Password</span>
             </span>
@@ -31,7 +67,7 @@ function LogIn({setUsername, setPassword}) {
 
           <div className="button" id="button-3">
             <div id="circle"></div>
-            <a href="#">Log In</a>
+            <a href="#" onClick={() => login()}>Log In</a>
           </div>
 
           <div className="signup">

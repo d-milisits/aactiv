@@ -10,6 +10,7 @@ function SignUp() {
   const [confirm, setConfirm] = useState("");
   const [signUp, setsignUp] = useState(true);
   const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const createAccount = async () => {
     const data = JSON.stringify({username:username, password:password});
@@ -25,6 +26,10 @@ function SignUp() {
     let response = output.created;
     if (response==="failed") {
       setError(true);
+      setSuccess(false);
+    } else if (response==="success") {
+      setError(false);
+      setSuccess(true);
     }
   }
 
@@ -39,6 +44,10 @@ function SignUp() {
 
         { error ? 
         <p className="error-prompt">Account already exists! Please try again.</p> :
+        null
+        }
+        { success ? 
+        <p className="success-prompt">Thank you for signing up, {username}. You can now log in.</p> :
         null
         }
 
