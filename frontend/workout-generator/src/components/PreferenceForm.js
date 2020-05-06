@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Redirect } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import Aos from 'aos';
 import './styles/PreferenceForm.css';
 
-function PreferenceForm({setMain, setSecondary, setEquip, main, secondary, equip}) {
+function PreferenceForm({setMain, setSecondary, setEquip, main, secondary, equip, setExercises}) {
 
   const [error, setError] = useState(false);
   const [pass, setPass] = useState(false);
@@ -47,14 +46,24 @@ function PreferenceForm({setMain, setSecondary, setEquip, main, secondary, equip
     }
   }
 
+  const getWorkout = async () => {
+    const data = JSON.stringify({main:main.toLowerCase(), secondary:secondary.toLowerCase()});
+    // Turns state passed from App.JS into JSON for Flask route to read.
+    const exerciselist = await fetch('http://localhost:5000/api/generate', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: data
+    })
+    const output = await exerciselist.json();
+    setExercises(output.workout);
+    // Gets data sent from flask route and sets in Exercises state
+  }
+
   return(
     <div className="preference-page">
-      
-      {/* <div className="wrapper">
-        <div className="video-container">
-          <iframe src="https://player.vimeo.com/video/415010343?autoplay=1&loop=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-        </div>
-      </div> */}
 
       <div data-aos="fade-right" className="input-content">
 
@@ -93,7 +102,8 @@ function PreferenceForm({setMain, setSecondary, setEquip, main, secondary, equip
                   {/* Checks if inputs are valid. If not, error. If pass=true, route to workout. */}
                   <a href="#" onClick={() => Check()}>SUBMIT</a>
                   { pass ? 
-                    <Redirect from="/preferences" to="/workout" /> :
+                    (getWorkout(), <Redirect from="/preferences" to="/workout" />)
+                     :
                     null
                   }
               </div>

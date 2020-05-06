@@ -21,7 +21,6 @@ class Users:
   @classmethod
   def login(cls, username, password_hash):
     with sqlite3.connect(cls.dbpath) as conn:
-      print("working")
       conn.row_factory = sqlite3.Row
       cursor = conn.cursor()
       sql = """SELECT * FROM users WHERE username=? AND password_hash=?;"""

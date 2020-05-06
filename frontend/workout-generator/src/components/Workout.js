@@ -2,38 +2,21 @@ import React, {useState, useEffect} from 'react';
 import NavBar from './NavBar';
 import Loading from './Loading';
 import Exercise from './Exercise';
+import Logo from '../img/just-logo.png';
 import './styles/Exercise.css';
 
-function Workout({main, secondary, equip}) {
+function Workout({exercises}) {
 
   const [loading, setLoading] = useState(true);
-  const [exercises, setExercises] = useState([]);
+  const [cardPart, setCardPart] = useState("");
+  const [cardPrep, setCardPrep] = useState("");
+  const [cardInstructions, setCardInstructions] = useState("");
 
-  // Passes in preference form states from App.js
-
-  const getWorkout = async () => {
-    const data = JSON.stringify({main:main.toLowerCase(), secondary:secondary.toLowerCase()});
-    // Turns state passed from App.JS into JSON for Flask route to read.
-    const exerciselist = await fetch('http://localhost:5000/api/generate', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: data
-    })
-    const output = await exerciselist.json();
-    setExercises(output.workout);
-    // Gets data sent from flask route and sets in Exercises state
-  }
+  console.log(exercises);
 
   setTimeout(() => {
     setLoading(false);
   }, 4575);
-
-  useEffect(() => {
-    getWorkout();
-  }, [])
 
   return(
     <div>
@@ -41,10 +24,30 @@ function Workout({main, secondary, equip}) {
       <Loading /> : 
       <div className="thebody">
         <NavBar />
-        <div className="exercise-card-container">
-          {exercises.map(exercise => (
-            <div><Exercise name={exercise[1]} part={exercise[7]} preparation={exercise[4]} instructions={exercise[5]} video={exercise[6]} /><br></br></div>
-          ))}
+        <div className="exercise-body">
+
+          <div className="exercise-card-container">
+            <h2 className="today">Today's Workout:</h2>
+            {exercises.map(exercise => (
+              <div className="logo-title">
+                <img src={Logo} alt="logo" height="70" width="70"/>
+                <Exercise name={exercise[1]} part={exercise[7]} preparation={exercise[4]} instructions={exercise[5]} video={exercise[6]} setCardPart={setCardPart} setCardPrep={setCardPrep} setCardInstructions={setCardInstructions} />
+              <br></br></div>
+            ))}
+          </div>
+
+          <div data-aos="fade-left" class="card-container">
+            <div class="card">
+              <div class="content">
+                <p className="part"><span>Muscles Worked:</span><br></br><br></br>{cardPart}</p>
+                <p className="preparation"><span>Preparation:</span><br></br><br></br>{cardPrep}</p>
+                <p className="instructions"><span>Instructions:</span><br></br><br></br>{cardInstructions}</p>
+              </div>
+              {/* <a className="view" href="#" onClick={() => PopUp()}>More Info</a> */}
+              <a className="view" href="#">More Info</a>
+            </div>
+          </div>
+
         </div>
       </div>}
     </div>

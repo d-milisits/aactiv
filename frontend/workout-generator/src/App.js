@@ -13,6 +13,7 @@ function App() {
   const [main, setMain] = useState("");
   const [secondary, setSecondary] = useState("");
   const [equip, setEquip] = useState("");
+  const [exercises, setExercises] = useState([]);
 
   return (
     <div className="App">
@@ -25,10 +26,10 @@ function App() {
           <Quote />
         </Route>
         <Route path="/preferences">
-          <PreferenceForm setMain={setMain} setSecondary={setSecondary} setEquip={setEquip} main={main} secondary={secondary} equip={equip} />
+          <PreferenceForm setMain={setMain} setSecondary={setSecondary} setEquip={setEquip} main={main} secondary={secondary} equip={equip} setExercises={setExercises} />
         </Route>
         <Route path="/workout">
-          <Workout main={main} secondary={secondary} equip={equip} />
+          <Workout main={main} secondary={secondary} equip={equip} exercises={exercises}/>
         </Route>
         <Route path="/login">
           <LogIn />
