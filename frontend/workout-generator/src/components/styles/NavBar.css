@@ -6,14 +6,14 @@ header {
   letter-spacing: 4px;
   margin-right: 85vw;
   transition: color .4s;
-  color: WHITE;
+  color: #636e72;
 }
 .specific-aactiv:hover {
   color: #ee5253;
   cursor: pointer;
 }
 .specific-menu-toggle {
-  color: WHITE;
+  color: #636e72;
   font-size: 2.2rem;
   position:absolute;
   top:50%;

@@ -1,17 +1,28 @@
-.loading {
-    background-color: #353b48;
-}
+
 .thebody
 {
     min-height: 100vh;
-    background-color: #353b48;
+    background-color: #dfe6e9;
 }
 .exercise-body {
     display:flex;
 }
-.card-container, .exercise-card-container {
+.card-container, .exercise-card-container, .clickMe {
     flex: 1;
     height:100vh;
+}
+.clickMe {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.clickMe h2 {
+    color:black;
+    font-weight: 200;
+    letter-spacing: 3.5px;
+    text-align: center;
+    text-transform: uppercase;
+    margin:auto;
 }
 .exercise-card-container {
     display:flex;
@@ -20,16 +31,9 @@
     padding-left: 5vw;
     font-family: 'Roboto Condensed';
     text-transform: uppercase;
-    color:white;
+    color:black;
     letter-spacing: 3.5px;
-    font-size: 1.4rem;
-    /* align-items: center; */
-}
-.exercise-card-container .today {
-    letter-spacing: 5px;
-    padding: 15px;
-    font-weight: 600;
-    color: #f1c40f;
+    font-size: 1.1rem;
 }
 .exercise-card-container .logo-title {
     display:flex;
@@ -39,13 +43,34 @@
     margin: 0 10px;
 }
 .ex-title {
-    font-weight:200;
+    font-weight:400;
     transition: .25s all ease;
 }
-.ex-title:hover {
-    color: red;
+.ex-title {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
     cursor: pointer;
 }
+.ex-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -10;
+    width: 100%;
+    height: 100%;
+    padding: 1px;
+    background-color: white;
+    transform: translateX(-101%);
+    transition: transform 0.45s ease-in-out;
+    opacity:.35;
+}
+.ex-title:hover::after {
+    z-index: 20;
+    transform: translateX(101%);
+}
+
 .card-container
 {
     max-width: 1000px;
@@ -53,7 +78,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 0.5s;
     font-family: 'Roboto Condensed';
 }
 .card-container .card

@@ -37,7 +37,7 @@ function PreferenceForm({setMain, setSecondary, setEquip, main, secondary, equip
   function Check() {
     let equip_list = ["barbell", "dumbbell", "cables", "none"];
     let part_list = ["chest", "back", "shoulders", "biceps", "triceps", "calves", "forearms", "glutes", "hams"];
-    if ( (!equip_list.includes(equip)) || (!part_list.includes(main)) || (!part_list.includes(secondary)) ) {
+    if ( (!equip_list.includes(equip.toLowerCase())) || (!part_list.includes(main.toLowerCase())) || (!part_list.includes(secondary.toLowerCase())) ) {
       setError(true);
     }
     else {
@@ -95,7 +95,7 @@ function PreferenceForm({setMain, setSecondary, setEquip, main, secondary, equip
 
         </div>
 
-        <div data-aos="fade-left" className="input-content">
+        <div data-aos="fade-down" className="input-content">
 
           <h1 className="input-prompt">Please answer the questions below to help us find the best options for you.</h1>
           { error ? 

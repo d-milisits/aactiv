@@ -23,7 +23,7 @@ function Quote() {
   return (
     <div className="quote-page">
 
-      <div data-aos="fade-right" className="prompt-content">
+      <div data-aos="fade-down" className="prompt-content">
         <h1 className="quote-prompt">Before we begin, it is our belief that being motivated
           is key to a successful day.
         </h1>

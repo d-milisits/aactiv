@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './styles/Exercise.css';
 import Aos from 'aos';
 
-function Exercise({name, part, preparation, instructions, setCardPart, setCardPrep, setCardInstructions}) {
+function Exercise({name, part, preparation, instructions, setCardPart, setCardPrep, setCardInstructions, setCard}) {
 
   // function Log() {
   //   console.log(instructions);
@@ -12,6 +12,7 @@ function Exercise({name, part, preparation, instructions, setCardPart, setCardPr
     setCardPart(part);
     setCardPrep(preparation);
     setCardInstructions(instructions);
+    setCard(true);
   }
 
   return(

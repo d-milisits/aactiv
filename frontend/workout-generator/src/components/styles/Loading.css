@@ -3,7 +3,7 @@
   padding:0;
 }
 .loading body {
-  background: #353b48;
+  background: #dfe6e9;
   height: 100vh;
   width: 100vw;
 }
@@ -19,8 +19,8 @@
 .loader-div {
   width: calc(100% - 16px);
   height: calc(100% - 16px);
-  border: 8px solid white;
-  border-top: 12px solid #ee5253;
+  border: 8px solid black;
+  border-top: 10px solid #ee5253;
   border-radius: 50%;
   animation: rotate 2s linear infinite;
   margin:auto;
@@ -30,7 +30,7 @@
   100% {transform: rotate(360deg);}
 }
 .generating {
-  color:white;
+  color:black;
   font-family: 'Roboto Condensed';
   font-weight: 200;
   letter-spacing: 4px;
