@@ -22,12 +22,6 @@ function Quote() {
 
   return (
     <div className="quote-page">
-      
-      <div className="wrapper">
-        <div className="video-container">
-          <iframe src="https://player.vimeo.com/video/414985099?autoplay=1&loop=1&color=ffffff"frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-        </div>
-      </div>
 
       <div data-aos="fade-right" className="prompt-content">
         <h1 className="quote-prompt">Before we begin, it is our belief that being motivated
