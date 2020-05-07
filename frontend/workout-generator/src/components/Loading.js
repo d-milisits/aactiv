@@ -12,7 +12,7 @@ function Loading() {
           <div className="loader-div">
           </div>
         </div>
-        <h1 className="generating">Generating your customized workout....</h1>
+  <h1 className="generating">Thank you for using AACTIV, {sessionStorage.getItem('username')}!<br></br>Generating your workout now...</h1>
       </body>
       </FadeIn>
     </div>
