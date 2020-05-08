@@ -1,0 +1,22 @@
+.page {
+  background-color: #dfe6e9;
+}
+.isLoggedIn {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height:100vh;
+  width:100vw;
+  background-color: #dfe6e9;
+  color:black;
+}
+.already h2 {
+  letter-spacing: 4px;
+  font-size: 3rem;
+  padding: 25px;
+  font-weight: 200;
+  font-family: 'Roboto Condensed';
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}

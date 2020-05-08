@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
+import IsLoggedIn from './IsLoggedIn';
 import SignUp from './SignUp';
 import Logo from '../img/just-logo.png';
 import './styles/LogIn.css';
 
-function LogIn() {
+function LogIn({loggedIn, setLoggedIn}) {
 
   const [signUp, setsignUp] = useState(false);
   // Username/password for SignIn form.
@@ -32,61 +33,68 @@ function LogIn() {
         setError(true);
         setSuccess(false);
       } else if (response==="success") {
+        sessionStorage.setItem('username', user);
         setError(false);
         setSuccess(true);
-        sessionStorage.setItem('username', user);
         // let session = sessionStorage.getItem('username')
         // console.log(`This session username is ${session}.`);
         setTimeout(() => {
           setReroute(true);
-        }, 2750);
+          setLoggedIn(true);
+        }, 3000);
       }
     }
   
   return (
     <div>
-      { signUp ? <SignUp /> :
-      <div className="login">
-        <div data-aos="fade-down" className="login-box">
+      { sessionStorage.getItem('username') && loggedIn ? <IsLoggedIn /> :
+        <div>
+        { signUp ? <SignUp /> :
+        <div className="login">
+          <div data-aos="fade-down" className={`login-box ${success ? "blurred" : ""}`} >
 
-          <img src={Logo} alt="logo"/>
+            <img src={Logo} alt="logo"/>
 
-          { error ? 
-          <p className="error-prompt">Account not found. Please try again.</p> :
-          null
-          }
-          { success ? 
-          <p className="success-prompt">Thank you for logging in, {sessionStorage.getItem('username')}! Redirecting now...</p> :
-          null
-          }
+            { error ? 
+            <p className="error-prompt">Account not found. Please try again.</p> :
+            null
+            }
 
-          <label class="field a-field a-field_a3"> 
-              <input id="input" class="field__input a-field__input" autocomplete="off" placeholder="Enter name here" onChange={e => setUsername(e.target.value)} required/>
+            <label class="field a-field a-field_a3"> 
+                <input id="input" class="field__input a-field__input" autocomplete="off" placeholder="Enter name here" onChange={e => setUsername(e.target.value)} required/>
+                <span class="a-field__label-wrap">
+                  <span class="a-field__label">Username</span>
+                </span>
+              </label><br></br>
+
+            <label class="field a-field a-field_a3">
+              <input id="input2" type="password" class="field__input a-field__input" autocomplete="off" placeholder="Enter password here" onChange={e => setPassword(e.target.value)} required/>
               <span class="a-field__label-wrap">
-                <span class="a-field__label">Username</span>
+                <span class="a-field__label">Password</span>
               </span>
             </label><br></br>
 
-          <label class="field a-field a-field_a3">
-            <input id="input2" type="password" class="field__input a-field__input" autocomplete="off" placeholder="Enter password here" onChange={e => setPassword(e.target.value)} required/>
-            <span class="a-field__label-wrap">
-              <span class="a-field__label">Password</span>
-            </span>
-          </label><br></br>
+            <div className="button" id="button-3">
+              <div id="circle"></div>
+              <a href="#" onClick={() => login()}>Log In</a>
+            </div>
 
-          <div className="button" id="button-3">
-            <div id="circle"></div>
-            <a href="#" onClick={() => login()}>Log In</a>
+            <div className="signup">
+              <a href="#" onClick={() => setsignUp(true)}>Don't have an account? Sign up now.</a>
+            </div>
+            
           </div>
+          { success ? 
+            <p data-aos="fade-down" className="success-prompt">Thank you for logging in, {sessionStorage.getItem('username')}!<br></br> Redirecting now...</p> :
+            null
+          }
+          { reroute ? <Redirect from="/login" to="/home" /> : null }
 
-          <div className="signup">
-            <a href="#" onClick={() => setsignUp(true)}>Don't have an account? Sign up now.</a>
-          </div>
-          
         </div>
-      </div>
+        
+          }
+        </div>
       }
-      { reroute ? <Redirect from="/login" to="/home" /> : null }
     </div>
   )
 }

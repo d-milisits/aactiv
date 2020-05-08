@@ -94,7 +94,7 @@ function PreferenceForm({setMain, setSecondary, setEquip, main, secondary, equip
 
         </div>
 
-        <div data-aos="fade-down" className="input-content">
+        <div data-aos="fade-right" className="input-content">
 
           <h1 className="input-prompt">Please answer the questions below to help us find the best options for you.</h1>
           { error ? 

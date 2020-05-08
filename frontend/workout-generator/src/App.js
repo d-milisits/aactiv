@@ -14,6 +14,7 @@ function App() {
   const [secondary, setSecondary] = useState("");
   const [equip, setEquip] = useState("");
   const [exercises, setExercises] = useState([]);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   return (
     <div className="App">
@@ -32,7 +33,7 @@ function App() {
           <Workout exercises={exercises} />
         </Route>
         <Route path="/login">
-          <LogIn />
+          <LogIn loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
         </Route>
       </BrowserRouter>
     </div>
