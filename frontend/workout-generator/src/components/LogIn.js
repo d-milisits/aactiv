@@ -53,9 +53,9 @@ function LogIn({loggedIn, setLoggedIn}) {
     <div>
       { sessionStorage.getItem('username') && loggedIn ? <IsLoggedIn setLoggedIn={setLoggedIn} /> :
         <div>
-        <NavBar />
         { signUp ? <SignUp /> :
         <div className="login">
+          <NavBar />
           <div data-aos="fade-down" className={`login-box ${success ? "blurred" : ""}`} >
 
             <img src={Logo} alt="logo"/>
