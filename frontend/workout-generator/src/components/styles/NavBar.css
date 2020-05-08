@@ -1,5 +1,6 @@
 header {
   background-image:none;
+  z-index: 2500;
 }
 .specific-aactiv {
   font-size: 2rem;
