@@ -8,15 +8,13 @@
 }
 
 .login-box {
-  /* background-color:blue; */
   padding:50px;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: -10vh 0;
-  /* filter: blur(8px); */
+  /* margin: -10vh 0; */
 }
 .blurred {
   transition: .5s all all ease;
@@ -47,4 +45,11 @@
   top:45vh;
   text-align: center;
   font-size: 2rem;
+}
+.signup-success-prompt {
+  font-family: 'Roboto Condensed';
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1.2rem;
+  color: #44bd32;
 }

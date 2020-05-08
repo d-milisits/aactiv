@@ -15,6 +15,7 @@ function Workout({exercises}) {
 
   console.log(exercises);
 
+  // Pointless loading screen.
   setTimeout(() => {
     setLoading(false);
   }, 4575);

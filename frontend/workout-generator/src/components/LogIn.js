@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import IsLoggedIn from './IsLoggedIn';
 import SignUp from './SignUp';
+import NavBar from './NavBar';
 import Logo from '../img/just-logo.png';
 import './styles/LogIn.css';
 
@@ -52,6 +53,7 @@ function LogIn({loggedIn, setLoggedIn}) {
     <div>
       { sessionStorage.getItem('username') && loggedIn ? <IsLoggedIn setLoggedIn={setLoggedIn} /> :
         <div>
+        <NavBar />
         { signUp ? <SignUp /> :
         <div className="login">
           <div data-aos="fade-down" className={`login-box ${success ? "blurred" : ""}`} >

@@ -13,27 +13,37 @@ function SignUp() {
   // Error message if account already exists in database and success message for account creation success.
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
     // Sends create account information to flask route.
   const createAccount = async () => {
-    const data = JSON.stringify({username:username, password:password});
-    const status = await fetch('http://localhost:5000/api/create', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body:data
-    })
-    const output = await status.json();
-    let response = output.created;
-    // Error handling for failure. Displays error message.
-    if (response==="failed") {
+    if (password === confirm) {
+      const data = JSON.stringify({username:username, password:password});
+      const status = await fetch('http://localhost:5000/api/create', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body:data
+      })
+      const output = await status.json();
+      let response = output.created;
+      // Error handling for failure. Displays error message.
+      if (response==="failed") {
+        setErrorMessage("Account already exists! Please try again.")
+        setError(true);
+        setSuccess(false);
+      } else if (response==="success") {
+        setError(false);
+        setSuccess(true);
+      }
+    } else if (confirm === "") {
+      setErrorMessage("You must confirm your password.")
       setError(true);
-      setSuccess(false);
-    } else if (response==="success") {
-      setError(false);
-      setSuccess(true);
+    } else if (password !== confirm) {
+      setErrorMessage("Passwords do not match. Please try again.")
+      setError(true);
     }
   }
 
@@ -47,11 +57,11 @@ function SignUp() {
         <img src={Logo} alt="logo"/>
 
         { error ? 
-        <p className="error-prompt">Account already exists! Please try again.</p> :
+        <p className="error-prompt">{errorMessage}</p> :
         null
         }
         { success ? 
-        <p className="success-prompt">Thank you for signing up, {username}. You can now log in.</p> :
+        <p data-aos="fade-up" className="signup-success-prompt">Thank you for signing up, {username}. You can now log in.</p> :
         null
         }
 
