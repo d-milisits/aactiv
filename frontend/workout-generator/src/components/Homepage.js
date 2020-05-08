@@ -9,6 +9,7 @@ import Logo from '../img/logo.png';
 
 function Homepage({setLoggedIn}) {
 
+    // Animation for navbar opening
   function Animation() {
     const selectElement = function (element) {
       return document.querySelector(element);
@@ -26,6 +27,7 @@ function Homepage({setLoggedIn}) {
   return(
     <div className="page">
 
+      {/* Checks if user is in session */}
       { sessionStorage.getItem('username') ? setLoggedIn(true) : setLoggedIn(false) }
 
       <header>

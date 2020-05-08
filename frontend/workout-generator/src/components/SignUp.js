@@ -8,10 +8,13 @@ function SignUp() {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [confirm, setConfirm] = useState("");
+  // If sign up is true, show sign up form. Else, show login form.
   const [signUp, setsignUp] = useState(true);
+  // Error message if account already exists in database and success message for account creation success.
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
 
+    // Sends create account information to flask route.
   const createAccount = async () => {
     const data = JSON.stringify({username:username, password:password});
     const status = await fetch('http://localhost:5000/api/create', {
@@ -24,6 +27,7 @@ function SignUp() {
     })
     const output = await status.json();
     let response = output.created;
+    // Error handling for failure. Displays error message.
     if (response==="failed") {
       setError(true);
       setSuccess(false);

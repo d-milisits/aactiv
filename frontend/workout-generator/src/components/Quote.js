@@ -8,6 +8,7 @@ function Quote() {
   const [toggle, setToggle] = useState(false);
   const [blur, setBlur] = useState("");
 
+    // Retrieves one random quote from database.
   const getQuote = async () => {
     setToggle(true);
     setBlur(true);
@@ -41,6 +42,7 @@ function Quote() {
         </div>
       </div>
     
+      {/* Toggles blur CSS class on state change (when quote is retrieved) */}
       <div className={`quote ${blur ? "quote-blurred" : ""}`}>
         <h1 className="quote-content">{quote}</h1>
         {toggle ? 

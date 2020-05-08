@@ -45,6 +45,7 @@ function PreferenceForm({setMain, setSecondary, setEquip, main, secondary, equip
     }
   }
 
+    // Gets data from flask route and sets workout state to list of workout objects.
   const getWorkout = async () => {
     const data = JSON.stringify({main:main.toLowerCase(), secondary:secondary.toLowerCase()});
     // Turns state passed from App.JS into JSON for Flask route to read.

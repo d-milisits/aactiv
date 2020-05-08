@@ -11,10 +11,13 @@ function LogIn({loggedIn, setLoggedIn}) {
   // Username/password for SignIn form.
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  // Error handling/messages on screen.
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
+  // Reroutes to homepage if login is successful.
   const [reroute, setReroute] = useState(false);
 
+  // Sends login data to flask route.
   const login = async () => {
     const data = JSON.stringify({username:username, password:password});
     const status = await fetch('http://localhost:5000/api/login', {
@@ -39,12 +42,12 @@ function LogIn({loggedIn, setLoggedIn}) {
         // let session = sessionStorage.getItem('username')
         // console.log(`This session username is ${session}.`);
         setTimeout(() => {
-          // setLoggedIn(true);
           setReroute(true);
         }, 3000);
       }
     }
   
+    // If already logged in (user set in SessionStorage), show isLoggedIn screen. Else, prompt to log in/sign up.
   return (
     <div>
       { sessionStorage.getItem('username') && loggedIn ? <IsLoggedIn setLoggedIn={setLoggedIn} /> :
