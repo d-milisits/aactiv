@@ -36,7 +36,7 @@ function Workout({exercises}) {
           </div>
           
           { card ? 
-            <div data-aos="fade-left" class="card-container">
+            <div class="card-container">
               <div class="card">
                 <div class="content">
                   <p className="part"><span>Muscles Worked:</span><br></br><br></br>{cardPart}</p>

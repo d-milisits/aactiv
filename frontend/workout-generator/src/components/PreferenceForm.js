@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import Aos from 'aos';
 import './styles/PreferenceForm.css';
 
 function PreferenceForm({setMain, setSecondary, setEquip, main, secondary, equip, setExercises}) {

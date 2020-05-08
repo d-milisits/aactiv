@@ -167,3 +167,7 @@ a {
 .continue-container #button-3:hover #circle {
   background: white;
 }
+.quote-blurred {
+  transition: .8s all ease;
+  backdrop-filter: blur(11px);
+}

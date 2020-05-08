@@ -7,9 +7,11 @@ function Quote() {
 
   const [quote, setQuote] = useState("");
   const [toggle, setToggle] = useState(false);
+  const [blur, setBlur] = useState("");
 
   const getQuote = async () => {
     setToggle(true);
+    setBlur(true);
     try {
       const quotes = await fetch("http://localhost:5000/api/quote");
       const output = await quotes.json();
@@ -39,8 +41,9 @@ function Quote() {
             </div>
         </div>
       </div>
-      <div className="quote">
-        <h1 className="quote-content">{quote}</h1>
+    
+      <div className={`quote ${blur ? "quote-blurred" : ""}`}>
+        <h1 data-aos="fade-down" className="quote-content">{quote}</h1>
         {toggle ? 
           <div data-aos="fade-up" className="continue-container">
             <div className="button" id="button-3">
