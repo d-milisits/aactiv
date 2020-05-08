@@ -7,7 +7,7 @@ import 'aos/dist/aos.css';
 import './styles/Homepage.css';
 import Logo from '../img/logo.png';
 
-function Homepage() {
+function Homepage({setLoggedIn}) {
 
   function Animation() {
     const selectElement = function (element) {
@@ -21,10 +21,13 @@ function Homepage() {
 
   useEffect(() => {
       Aos.init({duration: 3000});
-    }, [  ]);
+    }, [ ]);
 
   return(
     <div className="page">
+
+      { sessionStorage.getItem('username') ? setLoggedIn(true) : setLoggedIn(false) }
+
       <header>
         <div className="container">
           <nav className="nav">
@@ -41,7 +44,7 @@ function Homepage() {
                 <a href="#" className="nav-link">My Profile</a>
               </li>
               <li className="nav-item">
-                <Link to="/login" className="nav-link">Log In</Link>
+                <Link to="/login" className="nav-link">{sessionStorage.getItem('username') ? "Log Out" : "Log In"}</Link>
               </li>
             </ul>
           </nav>

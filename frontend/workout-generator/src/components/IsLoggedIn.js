@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './styles/isLoggedIn.css';
 import { Redirect } from 'react-router-dom';
 
-function IsLoggedIn() {
+function IsLoggedIn({setLoggedIn}) {
 
   const [redirect, setRedirect] = useState(false);
 
@@ -18,7 +18,7 @@ function IsLoggedIn() {
     <div className="page">
       { redirect ? <Redirect from="/login" to="/home" /> : 
         <div data-aos="fade-down" className="isLoggedIn">
-          <div className="already"><h2>You are already logged in, {sessionStorage.getItem('username')}.</h2></div>
+          <div className="already"><h2>Thank you for using AACTIV, {sessionStorage.getItem('username')}.</h2></div>
 
           <div className="button" id="button-3">
             <div id="circle"></div>
@@ -27,7 +27,7 @@ function IsLoggedIn() {
 
           <div className="button" id="button-3">
             <div id="circle"></div>
-            <a href="#" onClick={() => goHome()}>Go Home</a>
+            <a href="#" onClick={() => goHome()}>Homepage</a>
           </div>  
 
         </div>

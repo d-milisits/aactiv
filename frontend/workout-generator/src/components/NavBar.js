@@ -32,7 +32,7 @@ function NavBar() {
                 <a href="#" className="nav-link">My Profile</a>
               </li>
               <li className="nav-item">
-                <Link to="/login" className="nav-link">Log In</Link>
+                <Link to="/login" className="nav-link">{sessionStorage.getItem('username') ? "Log Out" : "Log In"}</Link>
               </li>
             </ul>
           </nav>

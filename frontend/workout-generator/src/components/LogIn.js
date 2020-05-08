@@ -39,15 +39,15 @@ function LogIn({loggedIn, setLoggedIn}) {
         // let session = sessionStorage.getItem('username')
         // console.log(`This session username is ${session}.`);
         setTimeout(() => {
+          // setLoggedIn(true);
           setReroute(true);
-          setLoggedIn(true);
         }, 3000);
       }
     }
   
   return (
     <div>
-      { sessionStorage.getItem('username') && loggedIn ? <IsLoggedIn /> :
+      { sessionStorage.getItem('username') && loggedIn ? <IsLoggedIn setLoggedIn={setLoggedIn} /> :
         <div>
         { signUp ? <SignUp /> :
         <div className="login">
@@ -84,6 +84,7 @@ function LogIn({loggedIn, setLoggedIn}) {
             </div>
             
           </div>
+
           { success ? 
             <p data-aos="fade-down" className="success-prompt">Thank you for logging in, {sessionStorage.getItem('username')}!<br></br> Redirecting now...</p> :
             null

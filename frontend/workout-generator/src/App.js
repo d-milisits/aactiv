@@ -21,7 +21,7 @@ function App() {
       <BrowserRouter>
         <Redirect from="/" to="/home" />
         <Route path="/home">
-          <Homepage />
+          <Homepage setLoggedIn={setLoggedIn} />
         </Route>
         <Route path="/quote">
           <Quote />
