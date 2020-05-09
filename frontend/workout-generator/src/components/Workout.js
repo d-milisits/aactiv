@@ -13,7 +13,14 @@ function Workout({exercises}) {
   const [cardInstructions, setCardInstructions] = useState("");
   const [card, setCard] = useState(false);
 
-  console.log(exercises);
+  // console.log(exercises);
+
+  let exercise_array = [];
+  exercises.map(exercise => (
+    exercise_array.push(exercise[1])
+  ));
+  let exercise_string = exercise_array.toString();
+  console.log(`The exercise string is ${exercise_string}`);
 
   // Pointless loading screen.
   setTimeout(() => {
@@ -35,9 +42,12 @@ function Workout({exercises}) {
               </div>
             ))}
 
-            <div className="button" id="button-3">
-              <div id="circle"></div>
-              <a href="#" >Add To <br></br>Favorites</a>
+            <div className="cta">
+              <h3 className="cta-prompt">Enjoyed this workout?<br></br>Add it to your favorites.</h3>
+              <div className="button" id="button-3">
+                <div id="circle"></div>
+                <a href="#" >Favorite</a>
+              </div>
             </div>
 
           </div>
