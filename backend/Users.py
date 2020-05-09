@@ -29,3 +29,26 @@ class Users:
       if user:
         return cls(**user)
       return None
+
+  # Adds favorite workout to user_favorites.
+  @classmethod
+  def add_to_favorites(cls, username, favorite):
+    with sqlite3.connect(cls.dbpath) as conn:
+      conn.row_factory = sqlite3.Row
+      cursor = conn.cursor()
+      sql = """INSERT INTO user_favorites(
+        fk_username, favorite
+      ) VALUES(?, ?);"""
+      values = (username, favorite)
+      cursor.execute(sql, values)
+  
+  # Retrieves favorite list from a given username.
+  @classmethod 
+  def get_favorites(cls, username):
+    with sqlite3.connect(cls.dbpath) as conn:
+      conn.row_factory = sqlite3.Row
+      cursor = conn.cursor()
+      sql = """SELECT favorite FROM user_favorites WHERE fk_username=?;"""
+      cursor.execute(sql, (username,))
+      favorites = cursor.fetchall()
+      return favorites
