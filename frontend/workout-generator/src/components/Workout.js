@@ -12,6 +12,7 @@ function Workout({exercises}) {
   const [cardPrep, setCardPrep] = useState("");
   const [cardInstructions, setCardInstructions] = useState("");
   const [card, setCard] = useState(false);
+  const [added, setAdded] = useState(false);
 
   // console.log(exercises);
 
@@ -22,18 +23,38 @@ function Workout({exercises}) {
   let exercise_string = exercise_array.toString();
   console.log(`The exercise string is ${exercise_string}`);
 
+  const addToFavorite = async () => {
+    const data = JSON.stringify({username:sessionStorage.getItem('username'), favorite:exercise_string});
+    const status = await fetch('http://localhost:5000/api/favorite', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body:data
+    })
+    const output = await status.json();
+    let response = output.status
+    if (response==="success") {
+      setAdded(true);
+      setTimeout(() => {
+        setAdded(false);
+      }, 3000);
+    }
+  }
+
   // Pointless loading screen.
   setTimeout(() => {
     setLoading(false);
   }, 4575);
 
   return(
-    <div>
+    <div className="workout-body">
       {loading ? 
       <Loading /> : 
       <div className="thebody">
         <NavBar />
-        <div className="exercise-body">
+        <div className={`exercise-body ${added ? "blurred" : ""}`}>
           <div data-aos="fade-right" className="exercise-card-container">
             {exercises.map(exercise => (
               <div className="logo-title">
@@ -46,7 +67,7 @@ function Workout({exercises}) {
               <h3 className="cta-prompt">Enjoyed this workout?<br></br>Add it to your favorites.</h3>
               <div className="button" id="button-3">
                 <div id="circle"></div>
-                <a href="#" >Favorite</a>
+                <a href="#" onClick={() => addToFavorite()}>Favorite</a>
               </div>
             </div>
 
@@ -68,7 +89,14 @@ function Workout({exercises}) {
           }
 
         </div>
+
+        { added ? 
+          <p data-aos="fade-up" className="success-prompt">This workout has been added to your favorites, <br></br>{sessionStorage.getItem('username')}. Enjoy!</p> :
+          null
+        }
+
       </div>}
+
     </div>
   )
 }
