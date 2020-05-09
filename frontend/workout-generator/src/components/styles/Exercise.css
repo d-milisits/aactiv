@@ -9,7 +9,7 @@
 }
 .card-container, .exercise-card-container, .clickMe {
     flex: 1;
-    height:100vh;
+    padding: 9.5% 0;
 }
 .clickMe {
     display:flex;

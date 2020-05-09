@@ -34,6 +34,12 @@ function Workout({exercises}) {
                 <Exercise name={exercise[1]} part={exercise[7]} preparation={exercise[4]} instructions={exercise[5]} video={exercise[6]} setCardPart={setCardPart} setCardPrep={setCardPrep} setCardInstructions={setCardInstructions} setCard={setCard} />
               </div>
             ))}
+
+            <div className="button" id="button-3">
+              <div id="circle"></div>
+              <a href="#" >Add To <br></br>Favorites</a>
+            </div>
+
           </div>
           
           { card ? 
