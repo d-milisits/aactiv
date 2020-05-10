@@ -1,0 +1,27 @@
+.profile {
+  width:100vw;
+  min-height:100vh;
+  background-color: #dfe6e9;
+  font-family: 'Roboto Condensed';
+}
+.profile-content {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 7vh;
+}
+.weight-img {
+  height:250px;
+  width:250px;
+}
+.profile-message {
+  font-weight: 200;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 3.2px;
+  padding-bottom: 25px;
+}
+.false {
+  height:80vh;
+}
