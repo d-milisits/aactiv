@@ -43,7 +43,7 @@ function Homepage({setLoggedIn}) {
                 <a href="#" className="nav-link">Home</a>
               </li>
               <li className="nav-item">
-                <a href="#" className="nav-link">My Profile</a>
+                <Link to="/profile" className="nav-link">My Profile</Link>
               </li>
               <li className="nav-item">
                 <Link to="/login" className="nav-link">{sessionStorage.getItem('username') ? "Log Out" : "Log In"}</Link>

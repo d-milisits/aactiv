@@ -6,6 +6,7 @@ import Quote from './components/Quote';
 import PreferenceForm from './components/PreferenceForm';
 import Workout from './components/Workout';
 import LogIn from './components/LogIn';
+import Profile from './components/Profile';
 
 function App() {
 
@@ -34,6 +35,9 @@ function App() {
         </Route>
         <Route path="/login">
           <LogIn loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+        </Route>
+        <Route path="/profile">
+          <Profile />
         </Route>
       </BrowserRouter>
     </div>

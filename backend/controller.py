@@ -73,6 +73,15 @@ def add_to_favorites():
   except:
     return jsonify({"status":"failed"})
 
+@app.route("/api/profile", methods=["POST"])
+def get_profile_data():
+  data = request.get_json()
+  username = data.get("username")
+  favorites = Users.get_favorites(username)
+  if favorites:
+    return jsonify({"favorites":favorites})
+  return jsonify({"favorites":"none"})
+
 @app.route("/api/generate", methods=["POST"])
 def generate_workout():
 

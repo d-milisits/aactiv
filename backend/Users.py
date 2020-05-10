@@ -46,7 +46,6 @@ class Users:
   @classmethod 
   def get_favorites(cls, username):
     with sqlite3.connect(cls.dbpath) as conn:
-      conn.row_factory = sqlite3.Row
       cursor = conn.cursor()
       sql = """SELECT favorite FROM user_favorites WHERE fk_username=?;"""
       cursor.execute(sql, (username,))

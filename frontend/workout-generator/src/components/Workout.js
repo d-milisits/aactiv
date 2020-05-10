@@ -23,6 +23,7 @@ function Workout({exercises}) {
   let exercise_string = exercise_array.toString();
   console.log(`The exercise string is ${exercise_string}`);
 
+  // Post request to send JSON data to & add to user_favorites table.
   const addToFavorite = async () => {
     const data = JSON.stringify({username:sessionStorage.getItem('username'), favorite:exercise_string});
     const status = await fetch('http://localhost:5000/api/favorite', {
