@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles/FavoriteCard.css';
+import Logo from '../img/just-logo.png';
 
 function FavoriteCard({favorite}) {
 
@@ -9,6 +10,7 @@ function FavoriteCard({favorite}) {
   return (
     <div className="favorite-card">
       <div className="favorite-card-content">
+        <img src={Logo} alt="logo" />
         <ul className="title-list">
           {favorite.map(title => (
             title.split(",").map(text => (

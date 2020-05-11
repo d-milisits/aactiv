@@ -42,7 +42,7 @@ function Profile() {
 
       { sessionStorage.getItem('username') ? 
 
-        <div data-aos="fade-down" className="profile-content">
+        <div className="profile-content">
           <img className="weight-img" src={Logo} alt="logo"/>
           <p className="profile-message">{message}</p>
           <div className="favorite-content">
