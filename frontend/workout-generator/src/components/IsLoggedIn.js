@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './styles/isLoggedIn.css';
+import Logo from '../img/just-logo.png';
 import { Redirect } from 'react-router-dom';
 
 function IsLoggedIn({setLoggedIn}) {

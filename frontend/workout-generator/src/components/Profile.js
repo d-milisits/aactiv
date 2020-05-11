@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import NavBar from './NavBar';
+import FavoriteCard from './FavoriteCard';
 import Logo from '../img/just-logo.png';
 import './styles/Profile.css';
 
@@ -33,6 +34,8 @@ function Profile() {
     getFavorites();
   }, []);
 
+  console.log(favorites);
+
   return (
     <div className="profile">
       <NavBar />
@@ -42,12 +45,16 @@ function Profile() {
         <div data-aos="fade-down" className="profile-content">
           <img className="weight-img" src={Logo} alt="logo"/>
           <p className="profile-message">{message}</p>
+          <div className="favorite-content">
+            {favorites.map(favorite => (
+              <FavoriteCard favorite={favorite} />
+            ))}
+          </div>
         </div> 
         :
         <div data-aos="fade-down" className="profile-content false">
           <img className="weight-img" src={Logo} alt="logo"/>
-          <p className="profile-message">You are not currently logged in.<br></br>
-          To save favorites, please do so.</p>
+          <p className="profile-message">You are not currently logged in.</p>
           <div className="button" id="button-3">
             <div id="circle"></div>
             <a href="#"><Link to="/login">Log In</Link></a>

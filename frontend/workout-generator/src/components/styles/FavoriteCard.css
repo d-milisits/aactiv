@@ -1,0 +1,11 @@
+.favorite-card {
+  margin:15px;
+  font-family: 'Roboto Condensed';
+  width:150px;
+  letter-spacing: 1.5px;
+  padding:10px;
+  text-align: center;
+}
+.favorite-card-content {
+  padding:20px;
+}

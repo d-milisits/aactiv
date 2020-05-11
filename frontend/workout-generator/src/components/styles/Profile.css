@@ -15,6 +15,12 @@
   height:250px;
   width:250px;
 }
+.favorite-content {
+  max-width: 85%;
+  padding: 2.5%;
+  display: flex;
+  flex-wrap: wrap;
+}
 .profile-message {
   font-weight: 200;
   font-size: 1.8rem;
