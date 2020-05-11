@@ -1,18 +1,39 @@
 .favorite-card {
-  margin:20px 0;
+  margin:20px 10px;
   font-family: 'Roboto Condensed';
   width:300px;
-  letter-spacing: 1.5px;
   padding:10px;
   text-align: center;
+  position:relative;
 }
 .favorite-card-content {
   padding:20px;
 }
 .favorite-card-content img {
-  height:30px;
-  width:30px;
+  height:45px;
+  width:45px;
 }
 li {
-  padding:10px 0;
+  padding:10px 20px;
+}
+.remove {
+  cursor: pointer;
+  opacity: .3;
+  transition: .85s all ease;
+  filter: blur(3px);
+}
+.title-list {
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  font-weight:200;
+  text-transform: uppercase;
+}
+.click-remove {
+  transition: .2s all ease;
+  cursor: pointer;
+  color:#c0392b;
+  font-size: 2rem;
+  position:absolute;
+  top:45%;
+  left: 23%;
 }

@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import NavBar from './NavBar';
 import FavoriteCard from './FavoriteCard';
 import Logo from '../img/just-logo.png';
+import Crossfit from '../img/crossfit.png';
 import './styles/Profile.css';
 
 function Profile() {
@@ -43,7 +44,7 @@ function Profile() {
       { sessionStorage.getItem('username') ? 
 
         <div className="profile-content">
-          <img className="weight-img" src={Logo} alt="logo"/>
+          <img className="weight-img" src={Crossfit} alt="logo"/>
           <p className="profile-message">{message}</p>
           <div className="favorite-content">
             {favorites.map(favorite => (
