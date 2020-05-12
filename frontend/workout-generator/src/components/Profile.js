@@ -48,7 +48,7 @@ function Profile() {
           <p className="profile-message">{message}</p>
           <div className="favorite-content">
             {favorites.map(favorite => (
-              <FavoriteCard favorite={favorite} />
+              <FavoriteCard favorite={favorite} getFavorites={getFavorites} />
             ))}
           </div>
         </div> 

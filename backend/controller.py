@@ -73,6 +73,17 @@ def add_to_favorites():
   except:
     return jsonify({"status":"failed"})
 
+@app.route("/api/remove", methods=["POST"])
+def remove():
+  data = request.get_json()
+  username = data.get("username")
+  favorite = data.get("favorite")
+  try:
+    Users.remove_from_favorites(username, favorite)
+    return jsonify({"status":"success"})
+  except:
+    return jsonify({"status":"failed"})
+
 @app.route("/api/profile", methods=["POST"])
 def get_profile_data():
   data = request.get_json()

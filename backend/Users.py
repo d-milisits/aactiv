@@ -41,6 +41,14 @@ class Users:
       ) VALUES(?, ?);"""
       values = (username, favorite)
       cursor.execute(sql, values)
+
+  @classmethod 
+  def remove_from_favorites(cls, username, favorite):
+    with sqlite3.connect(cls.dbpath) as conn:
+      cursor = conn.cursor()
+      sql = """DELETE FROM user_favorites WHERE fk_username=? AND favorite=?;"""
+      values = (username, favorite)
+      cursor.execute(sql, values)
   
   # Retrieves favorite list from a given username.
   @classmethod 
