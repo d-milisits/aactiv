@@ -10,6 +10,7 @@ function Profile() {
 
   const [favorites, setFavorites] = useState([]);
   const [message, setMessage] = useState("");
+  const [removed, setRemoved] = useState(false);
 
   const getFavorites = async () => {
     const data = JSON.stringify({username:sessionStorage.getItem('username')});
@@ -44,11 +45,15 @@ function Profile() {
       { sessionStorage.getItem('username') ? 
 
         <div className="profile-content">
-          <img className="weight-img" src={Crossfit} alt="logo"/>
-          <p className="profile-message">{message}</p>
+          <img data-aos="fade-down" className="weight-img" src={Crossfit} alt="logo"/>
+          <p data-aos="fade-down" className="profile-message">{message}</p>
+
+          { removed ? <p data-aos="fade-down" className="signup-success-prompt">This favorite was successfully removed.</p> 
+          : null }
+
           <div className="favorite-content">
             {favorites.map(favorite => (
-              <FavoriteCard favorite={favorite} getFavorites={getFavorites} />
+              <FavoriteCard favorite={favorite} getFavorites={getFavorites} setRemoved={setRemoved} />
             ))}
           </div>
         </div> 

@@ -3,7 +3,7 @@ import FadeIn from 'react-fade-in';
 import './styles/FavoriteCard.css';
 import Logo from '../img/just-logo.png';
 
-function FavoriteCard({favorite, getFavorites}) {
+function FavoriteCard({favorite, getFavorites, setRemoved}) {
 
   const [hover, setHover] = useState(false);
   const [text, setText] = useState([]);
@@ -29,6 +29,10 @@ function FavoriteCard({favorite, getFavorites}) {
       if (output.status === "success") {
         getFavorites();
         setNextStep(false);
+        setRemoved(true);
+        setTimeout(() => {
+          setRemoved(false)
+        }, 4000);
       }
     }
 
