@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
+import FadeIn from 'react-fade-in';
 import IsLoggedIn from './IsLoggedIn';
 import SignUp from './SignUp';
 import NavBar from './NavBar';
@@ -56,7 +57,9 @@ function LogIn({loggedIn, setLoggedIn}) {
         { signUp ? <SignUp /> :
         <div className="login">
           <NavBar />
-          <div data-aos="fade-down" className={`login-box ${success ? "blurred" : ""}`} >
+
+          <FadeIn transitionDuration="3500">
+          <div className={`login-box ${success ? "blurred" : ""}`} >
 
             <img src={Logo} alt="logo"/>
 
@@ -89,6 +92,7 @@ function LogIn({loggedIn, setLoggedIn}) {
             </div>
             
           </div>
+          </FadeIn>
 
           { success ? 
             <p data-aos="fade-down" className="success-prompt">Thank you for logging in, {sessionStorage.getItem('username')}!<br></br> Redirecting now...</p> :

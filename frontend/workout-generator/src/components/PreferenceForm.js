@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import './styles/PreferenceForm.css';
+import FadeIn from 'react-fade-in';
 
 function PreferenceForm({setMain, setSecondary, setEquip, main, secondary, equip, setExercises}) {
 
@@ -95,8 +96,9 @@ function PreferenceForm({setMain, setSecondary, setEquip, main, secondary, equip
 
         </div>
 
-        <div data-aos="fade-right" className="input-content">
+        <div className="input-content">
 
+          <FadeIn transitionDuration="3500">
           <h1 className="input-prompt">Please answer the questions below to help us find the best options for you.</h1>
           { error ? 
           <p className="error-prompt">Please type a valid input. Check criteria if needed.</p> :
@@ -150,6 +152,7 @@ function PreferenceForm({setMain, setSecondary, setEquip, main, secondary, equip
             </div>
 
           </div>
+          </FadeIn>
 
 </div>
 

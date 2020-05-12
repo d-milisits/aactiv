@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import LogIn from './LogIn';
 import Logo from '../img/just-logo.png';
 import './styles/LogIn.css';
+import FadeIn from 'react-fade-in';
 
 function SignUp() {
 
@@ -40,9 +41,11 @@ function SignUp() {
       }
     } else if (confirm === "") {
       setErrorMessage("You must confirm your password.")
+      setSuccess(false);
       setError(true);
     } else if (password !== confirm) {
       setErrorMessage("Passwords do not match. Please try again.")
+      setSuccess(false);
       setError(true);
     }
   }
@@ -52,7 +55,9 @@ function SignUp() {
     <div>
     { signUp ? 
     <div className="login">
-      <div data-aos="fade-down" className="login-box">
+
+      <FadeIn transitionDuration="3500">
+      <div className="login-box">
 
         <img src={Logo} alt="logo"/>
 
@@ -96,6 +101,8 @@ function SignUp() {
         </div>
         
         </div>
+        </FadeIn>
+
       </div> :
       <LogIn />
     } 

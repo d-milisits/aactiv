@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './styles/Quote.css';
+import FadeIn from 'react-fade-in';
 
 function Quote() {
 
@@ -25,7 +26,8 @@ function Quote() {
   return (
     <div className="quote-page">
 
-      <div data-aos="fade-left" className="prompt-content">
+      <div className="prompt-content">
+        <FadeIn transitionDuration="3500">
         <h1 className="quote-prompt">Before we begin, it is our belief that being motivated
           is key to a successful day.
         </h1>
@@ -40,6 +42,7 @@ function Quote() {
               <Link to="/preferences">NO</Link>
             </div>
         </div>
+        </FadeIn>
       </div>
     
       {/* Toggles blur CSS class on state change (when quote is retrieved) */}

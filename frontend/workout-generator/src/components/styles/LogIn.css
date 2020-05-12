@@ -10,11 +10,11 @@
 .login-box {
   padding:50px;
   border-radius: 12px;
+  height:100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* margin: -10vh 0; */
 }
 .blurred {
   transition: .5s all all ease;
