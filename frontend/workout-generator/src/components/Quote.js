@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { TwitterShareButton } from 'react-twitter-embed';
 import './styles/Quote.css';
 import FadeIn from 'react-fade-in';
 
@@ -17,7 +18,7 @@ function Quote() {
       const quotes = await fetch("http://localhost:5000/api/quote");
       const output = await quotes.json();
       // output.quote -- ".quote" is the JSON key being returned from python. 
-      setQuote(output.quote);
+      setQuote(output.quote[0]);
     } catch(err) {
       console.error(err)
     }
@@ -48,6 +49,14 @@ function Quote() {
       {/* Toggles blur CSS class on state change (when quote is retrieved) */}
       <div className={`quote ${blur ? "quote-blurred" : ""}`}>
         <h1 className="quote-content">{quote}</h1>
+
+        { toggle ? 
+            <TwitterShareButton
+            url={'this is null'}
+            options={{ text: "Paste your quote here!", via: 'AACTIV', size: 'large' }}
+          /> : null
+         }
+
         {toggle ? 
           <div data-aos="fade-up" className="continue-container">
             <div className="button" id="button-3">
