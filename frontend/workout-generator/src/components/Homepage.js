@@ -88,7 +88,7 @@ function Homepage({setLoggedIn}) {
                 <div className="asterisk"><p>&#x26AC;</p></div>
               </div>
               <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              Having the same workout routines week after weeks is not only boring, but detremental to your development. The human body is incredibly smart and recognizes patterns, thus making it harder progress with repetitive routines. Become a member of the AACTIV community and programmatically generate unique workouts day by day, making it nearly impossible for your body to remain in a state of comfort.
               </p>
               <a href="#" class="btn body-btn">How To Use AACTIV</a>
             </div>
