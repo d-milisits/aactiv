@@ -116,7 +116,6 @@
     width: 50%;
     height: 100%;
     transition: 0.5s;
-    /* background:grey; */
     background: rgba(255,255,255,.2);
     z-index: 1;
 }
@@ -194,6 +193,14 @@
     font-size: 1.2rem;
     padding-right:20px;
 }
-.workout-body .success-prompt {
-    left:26%;
-} 
+.favorite-added {
+    width:100vw;
+    position:fixed;
+    text-align: center;
+    top:43vh;
+    z-index: 2000;
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 2rem;
+}

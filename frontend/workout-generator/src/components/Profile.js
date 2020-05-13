@@ -29,6 +29,7 @@ function Profile() {
       setMessage(`${sessionStorage.getItem('username')}'s saved favorites:`)
     } else {
       setMessage("This account currently has no favorites.");
+      setFavorites([]);
     }
   }
 
@@ -48,7 +49,7 @@ function Profile() {
           <img data-aos="fade-down" className="weight-img" src={Crossfit} alt="logo"/>
           <p data-aos="fade-down" className="profile-message">{message}</p>
 
-          { removed ? <p data-aos="fade-down" className="signup-success-prompt">This favorite was successfully removed.</p> 
+          { removed ? <p data-aos="fade-right" className="signup-success-prompt">This favorite was successfully removed.</p> 
           : null }
 
           <div className="favorite-content">

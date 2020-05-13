@@ -14,8 +14,6 @@ function Workout({exercises}) {
   const [card, setCard] = useState(false);
   const [added, setAdded] = useState(false);
 
-  // console.log(exercises);
-
   let exercise_array = [];
   exercises.map(exercise => (
     exercise_array.push(exercise[1])
@@ -37,6 +35,7 @@ function Workout({exercises}) {
     const output = await status.json();
     let response = output.status
     if (response==="success") {
+      clearTimeout();
       setAdded(true);
       setTimeout(() => {
         setAdded(false);
@@ -51,9 +50,16 @@ function Workout({exercises}) {
 
   return(
     <div className="workout-body">
+
+        { added ? 
+          <p data-aos="fade-down" className="favorite-added">This workout has been added to your favorites, <br></br>{sessionStorage.getItem('username')}. Enjoy!</p> :
+          null
+        }
+
       {loading ? 
       <Loading /> : 
       <div className="thebody">
+
         <NavBar />
         <div className={`exercise-body ${added ? "blurred" : ""}`}>
           <div data-aos="fade-right" className="exercise-card-container">
@@ -90,11 +96,6 @@ function Workout({exercises}) {
           }
 
         </div>
-
-        { added ? 
-          <p data-aos="fade-up" className="success-prompt">This workout has been added to your favorites, <br></br>{sessionStorage.getItem('username')}. Enjoy!</p> :
-          null
-        }
 
       </div>}
 

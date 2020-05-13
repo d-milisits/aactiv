@@ -6,7 +6,6 @@
   width:100vw;
   background-color: #dfe6e9;
 }
-
 .login-box {
   padding:50px;
   border-radius: 12px;
@@ -52,4 +51,7 @@
   letter-spacing: 2px;
   font-size: 1.2rem;
   color: #44bd32;
+}
+.page {
+  background-color: #f1c40f;
 }
