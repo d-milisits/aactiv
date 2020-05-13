@@ -31,7 +31,7 @@ function App() {
           <PreferenceForm setMain={setMain} setSecondary={setSecondary} setEquip={setEquip} main={main} secondary={secondary} equip={equip} setExercises={setExercises} />
         </Route>
         <Route path="/workout">
-          <Workout exercises={exercises} />
+          <Workout exercises={exercises} main={main} secondary={secondary} setExercises={setExercises} />
         </Route>
         <Route path="/login">
           <LogIn loggedIn={loggedIn} setLoggedIn={setLoggedIn} />

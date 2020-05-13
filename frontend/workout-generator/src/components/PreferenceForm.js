@@ -154,7 +154,7 @@ function PreferenceForm({setMain, setSecondary, setEquip, main, secondary, equip
           </div>
           </FadeIn>
 
-</div>
+    </div>
 
     </div>
   );

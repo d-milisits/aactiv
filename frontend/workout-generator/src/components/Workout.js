@@ -5,7 +5,7 @@ import Exercise from './Exercise';
 import Logo from '../img/just-logo.png';
 import './styles/Exercise.css';
 
-function Workout({exercises}) {
+function Workout({exercises, main, secondary, setExercises}) {
 
   const [loading, setLoading] = useState(true);
   const [cardPart, setCardPart] = useState("");
@@ -43,6 +43,23 @@ function Workout({exercises}) {
     }
   }
 
+  // Gets data from flask route and sets workout state to list of workout objects.
+  const getWorkout = async () => {
+    const data = JSON.stringify({main:main.toLowerCase(), secondary:secondary.toLowerCase()});
+    // Turns state passed from App.JS into JSON for Flask route to read.
+    const exerciselist = await fetch('http://localhost:5000/api/generate', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: data
+    })
+    const output = await exerciselist.json();
+    setExercises(output.workout);
+    // Gets data sent from flask route and sets in Exercises state
+  }
+
   // Pointless loading screen.
   setTimeout(() => {
     setLoading(false);
@@ -71,11 +88,23 @@ function Workout({exercises}) {
             ))}
 
             <div className="cta">
-              <h3 className="cta-prompt">Enjoyed this workout?<br></br>Add it to your favorites.</h3>
-              <div className="button" id="button-3">
-                <div id="circle"></div>
-                <a href="#" onClick={() => addToFavorite()}>Favorite</a>
+
+              <div>
+                <h3 className="cta-prompt">Enjoyed this workout?<br></br>Add it to your favorites.</h3>
+                <div className="button" id="button-3">
+                  <div id="circle"></div>
+                  <a href="#" onClick={() => addToFavorite()}>Favorite</a>
+                </div>
               </div>
+
+              <div>
+                <h3 className="cta-prompt">Not Happy?<br></br>Generate another workout.</h3>
+                <div className="button" id="button-3">
+                  <div id="circle"></div>
+                  <a href="#" onClick={() => getWorkout()} >Generate</a>
+                </div>
+              </div>
+
             </div>
 
           </div>
