@@ -207,3 +207,6 @@
     text-transform: uppercase;
     font-size: 2rem;
 }
+.favorite-added .button {
+    margin-top: 5%;
+}

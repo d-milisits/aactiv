@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import NavBar from './NavBar';
 import Loading from './Loading';
 import Exercise from './Exercise';
@@ -13,6 +14,7 @@ function Workout({exercises, main, secondary, setExercises}) {
   const [cardInstructions, setCardInstructions] = useState("");
   const [card, setCard] = useState(false);
   const [added, setAdded] = useState(false);
+  const [generate, setGenerate] = useState(false);
 
   let exercise_array = [];
   exercises.map(exercise => (
@@ -45,6 +47,7 @@ function Workout({exercises, main, secondary, setExercises}) {
 
   // Gets data from flask route and sets workout state to list of workout objects.
   const getWorkout = async () => {
+    setGenerate(false);
     const data = JSON.stringify({main:main.toLowerCase(), secondary:secondary.toLowerCase()});
     // Turns state passed from App.JS into JSON for Flask route to read.
     const exerciselist = await fetch('http://localhost:5000/api/generate', {
@@ -73,9 +76,25 @@ function Workout({exercises, main, secondary, setExercises}) {
           null
         }
 
+        { generate ? 
+          <div className="favorite-added">
+          <p data-aos="fade-down" className="favorite-added">Would you like to change your preferences?</p>
+          <div data-aos="fade-up" className="button" id="button-3">
+            <div id="circle"></div>
+            <Link to="/preferences">Yes</Link>
+          </div>
+          <div data-aos="fade-up" className="button" id="button-3">
+            <div id="circle"></div>
+            <a href="#" onClick={() => getWorkout()}>No</a>
+          </div>
+          </div> 
+          :
+          null
+        }
+
       {loading ? 
       <Loading /> : 
-      <div className="thebody">
+      <div className={`thebody ${generate ? "blurred" : ""}`}>
 
         <NavBar />
         <div className={`exercise-body ${added ? "blurred" : ""}`}>
@@ -101,7 +120,7 @@ function Workout({exercises, main, secondary, setExercises}) {
                 <h3 className="cta-prompt">Not Happy?<br></br>Generate another workout.</h3>
                 <div className="button" id="button-3">
                   <div id="circle"></div>
-                  <a href="#" onClick={() => getWorkout()} >Generate</a>
+                  <a href="#" onClick={() => setGenerate(true)} >Generate</a>
                 </div>
               </div>
 
