@@ -6,7 +6,7 @@ import Exercise from './Exercise';
 import Logo from '../img/just-logo.png';
 import './styles/Exercise.css';
 
-function Workout({exercises, main, secondary, setExercises}) {
+function Workout({exercises, main, secondary, equip, setExercises}) {
 
   const [loading, setLoading] = useState(true);
   const [cardPart, setCardPart] = useState("");
@@ -48,7 +48,7 @@ function Workout({exercises, main, secondary, setExercises}) {
   // Gets data from flask route and sets workout state to list of workout objects.
   const getWorkout = async () => {
     setGenerate(false);
-    const data = JSON.stringify({main:main.toLowerCase(), secondary:secondary.toLowerCase()});
+    const data = JSON.stringify({main:main.toLowerCase(), secondary:secondary.toLowerCase(), equip:equip.toLowerCase()});
     // Turns state passed from App.JS into JSON for Flask route to read.
     const exerciselist = await fetch('http://localhost:5000/api/generate', {
       method: 'POST',

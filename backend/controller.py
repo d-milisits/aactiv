@@ -97,105 +97,206 @@ def get_profile_data():
 def generate_workout():
 
   workout_list = []
+  workout_list.clear()
 
   # Get JSON values from Post Request sent from Workout.js.
   data = request.get_json()
   main = data.get("main")
   secondary = data.get("secondary")
+  equip = data.get("equip")
   # Select workout by random PK(ID) where name=main and secondary. Main=4 Exercises. Secondary=2 Exercises.
   while len(workout_list) < 4:
     if (main=="shoulders"):
+      if (equip != "none"):
+        while(len(workout_list) < 3):
+          rand_num = randint(1,15)
+          lift = Exercise.exercise_by_name_and_equip(rand_num, main, equip)
+          if lift not in workout_list and lift != None:
+            workout_list.append(lift)
       rand_num = randint(1,15)
       lift = Exercise.exercise_by_name(rand_num, main)
-      if lift not in workout_list:
+      if lift not in workout_list and lift != None:
         workout_list.append(lift)
       # checkGenerate(lift, workout_list, rand_num, pk_list)
     elif (main=="biceps"):
+      if (equip != "none"):
+        while(len(workout_list) < 3):
+          rand_num = randint(16,27)
+          lift = Exercise.exercise_by_name_and_equip(rand_num, main, equip)
+          if lift not in workout_list and lift != None:
+            workout_list.append(lift)
       rand_num = randint(16,27)
       lift = Exercise.exercise_by_name(rand_num, main)
-      if lift not in workout_list:
+      if lift not in workout_list and lift != None:
         workout_list.append(lift)
     elif (main=="triceps"):
+      if (equip != "none"):
+        while(len(workout_list) < 3):
+          rand_num = randint(28,40)
+          lift = Exercise.exercise_by_name_and_equip(rand_num, main, equip)
+          if lift not in workout_list and lift != None:
+            workout_list.append(lift)
       rand_num = randint(28,40)
       lift = Exercise.exercise_by_name(rand_num, main)
-      if lift not in workout_list:
+      if lift not in workout_list and lift != None:
         workout_list.append(lift)
     elif (main=="back"):
+      if (equip != "none"):
+        while(len(workout_list) < 3):
+          rand_num = randint(41,55)
+          lift = Exercise.exercise_by_name_and_equip(rand_num, main, equip)
+          if lift not in workout_list and lift != None:
+            workout_list.append(lift)
       rand_num = randint(41,55)
       lift = Exercise.exercise_by_name(rand_num, main)
-      if lift not in workout_list:
+      if lift not in workout_list and lift != None:
         workout_list.append(lift)
     elif (main=="chest"):
+      if (equip != "none"):
+        while(len(workout_list) < 3):
+          rand_num = randint(56,70)
+          lift = Exercise.exercise_by_name_and_equip(rand_num, main, equip)
+          if lift not in workout_list and lift != None:
+            workout_list.append(lift)
       rand_num = randint(56,70)
       lift = Exercise.exercise_by_name(rand_num, main)
-      if lift not in workout_list:
+      if lift not in workout_list and lift != None:
         workout_list.append(lift)
     elif (main=="quads"):
+      if (equip != "none"):
+        while(len(workout_list) < 3):
+          rand_num = randint(71,83)
+          lift = Exercise.exercise_by_name_and_equip(rand_num, main, equip)
+          if lift not in workout_list and lift != None:
+            workout_list.append(lift)
       rand_num = randint(71,83)
       lift = Exercise.exercise_by_name(rand_num, main)
-      if lift not in workout_list:
+      if lift not in workout_list and lift != None:
         workout_list.append(lift)
     elif (main=="hams"):
+      if (equip != "none"):
+        while(len(workout_list) < 3):
+          rand_num = randint(84,94)
+          lift = Exercise.exercise_by_name_and_equip(rand_num, main, equip)
+          if lift not in workout_list and lift != None:
+            workout_list.append(lift)
       rand_num = randint(84,94)
       lift = Exercise.exercise_by_name(rand_num, main)
-      if lift not in workout_list:
+      if lift not in workout_list and lift != None:
         workout_list.append(lift)
     elif (main=="forearms"):
+      if (equip != "none"):
+        while(len(workout_list) < 3):
+          rand_num = randint(95,100)
+          lift = Exercise.exercise_by_name_and_equip(rand_num, main, equip)
+          if lift not in workout_list and lift != None:
+            workout_list.append(lift)
       rand_num = randint(95,100)
       lift = Exercise.exercise_by_name(rand_num, main)
-      if lift not in workout_list:
+      if lift not in workout_list and lift != None:
         workout_list.append(lift)
     elif (main=="calves"):
+      if (equip != "none"):
+        while(len(workout_list) < 3):
+          rand_num = randint(101,106)
+          lift = Exercise.exercise_by_name_and_equip(rand_num, main, equip)
+          if lift not in workout_list and lift != None:
+            workout_list.append(lift)
       rand_num = randint(101,106)
       lift = Exercise.exercise_by_name(rand_num, main)
-      if lift not in workout_list:
+      if lift not in workout_list and lift != None:
         workout_list.append(lift)
   if len(workout_list) >= 4:
     while len(workout_list) < 6:
       if (secondary=="shoulders"):
+        if (equip != "none"):
+          rand_num = randint(1,15)
+          lift = Exercise.exercise_by_name_and_equip(rand_num, main, equip)
+          if lift not in workout_list and lift != None:
+            workout_list.append(lift)
         rand_num = randint(1,15)
         lift = Exercise.exercise_by_name(rand_num, secondary)
-        if lift not in workout_list:
+        if lift not in workout_list and lift != None:
           workout_list.append(lift)
       elif (secondary=="biceps"):
+        if (equip != "none"):
+          rand_num = randint(16,27)
+          lift = Exercise.exercise_by_name_and_equip(rand_num, main, equip)
+          if lift not in workout_list and lift != None:
+            workout_list.append(lift)
         rand_num = randint(16,27)
         lift = Exercise.exercise_by_name(rand_num, secondary)
-        if lift not in workout_list:
+        if lift not in workout_list and lift != None:
           workout_list.append(lift)
       elif (secondary=="triceps"):
+        if (equip != "none"):
+          rand_num = randint(28,40)
+          lift = Exercise.exercise_by_name_and_equip(rand_num, main, equip)
+          if lift not in workout_list and lift != None:
+            workout_list.append(lift)
         rand_num = randint(28,40)
         lift = Exercise.exercise_by_name(rand_num, secondary)
-        if lift not in workout_list:
+        if lift not in workout_list and lift != None:
           workout_list.append(lift)
       elif (secondary=="back"):
+        if (equip != "none"):
+          rand_num = randint(41,55)
+          lift = Exercise.exercise_by_name_and_equip(rand_num, main, equip)
+          if lift not in workout_list and lift != None:
+            workout_list.append(lift)
         rand_num = randint(41,55)
         lift = Exercise.exercise_by_name(rand_num, secondary)
-        if lift not in workout_list:
+        if lift not in workout_list and lift != None:
           workout_list.append(lift)
       elif (secondary=="chest"):
+        if (equip != "none"):
+          rand_num = randint(56,70)
+          lift = Exercise.exercise_by_name_and_equip(rand_num, main, equip)
+          if lift not in workout_list and lift != None:
+            workout_list.append(lift)
         rand_num = randint(56,70)
         lift = Exercise.exercise_by_name(rand_num, secondary)
-        if lift not in workout_list:
+        if lift not in workout_list and lift != None:
           workout_list.append(lift)
       elif (secondary=="quads"):
+        if (equip != "none"):
+          rand_num = randint(71,83)
+          lift = Exercise.exercise_by_name_and_equip(rand_num, main, equip)
+          if lift not in workout_list and lift != None:
+            workout_list.append(lift)
         rand_num = randint(71,83)
         lift = Exercise.exercise_by_name(rand_num, secondary)
-        if lift not in workout_list:
+        if lift not in workout_list and lift != None:
           workout_list.append(lift)
       elif (secondary=="hams"):
+        if (equip != "none"):
+          rand_num = randint(84,94)
+          lift = Exercise.exercise_by_name_and_equip(rand_num, main, equip)
+          if lift not in workout_list and lift != None:
+            workout_list.append(lift)
         rand_num = randint(84,94)
         lift = Exercise.exercise_by_name(rand_num, secondary)
-        if lift not in workout_list:
+        if lift not in workout_list and lift != None:
           workout_list.append(lift)
       elif (secondary=="forearms"):
+        if (equip != "none"):
+          rand_num = randint(95,100)
+          lift = Exercise.exercise_by_name_and_equip(rand_num, main, equip)
+          if lift not in workout_list and lift != None:
+            workout_list.append(lift)
         rand_num = randint(95,100)
         lift = Exercise.exercise_by_name(rand_num, secondary)
-        if lift not in workout_list:
+        if lift not in workout_list and lift != None:
           workout_list.append(lift)
       elif (secondary=="calves"):
+        if (equip != "none"):
+          rand_num = randint(101,106)
+          lift = Exercise.exercise_by_name_and_equip(rand_num, main, equip)
+          if lift not in workout_list and lift != None:
+            workout_list.append(lift)
         rand_num = randint(101,106)
         lift = Exercise.exercise_by_name(rand_num, secondary)
-        if lift not in workout_list:
+        if lift not in workout_list and lift != None:
           workout_list.append(lift)
 
   print(workout_list)

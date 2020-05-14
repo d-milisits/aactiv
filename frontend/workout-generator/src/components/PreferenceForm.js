@@ -35,7 +35,7 @@ function PreferenceForm({setMain, setSecondary, setEquip, main, secondary, equip
 
   // Function to check if inputs are valid. Returns error message if not.
   function Check() {
-    let equip_list = ["barbell", "dumbbell", "cables", "none"];
+    let equip_list = ["barbell", "dumbbell", "cable", "none"];
     let part_list = ["chest", "back", "shoulders", "biceps", "triceps", "calves", "forearms", "glutes", "hams"];
     if ( (!equip_list.includes(equip.toLowerCase())) || (!part_list.includes(main.toLowerCase())) || (!part_list.includes(secondary.toLowerCase())) ) {
       setError(true);
@@ -48,7 +48,7 @@ function PreferenceForm({setMain, setSecondary, setEquip, main, secondary, equip
 
     // Gets data from flask route and sets workout state to list of workout objects.
   const getWorkout = async () => {
-    const data = JSON.stringify({main:main.toLowerCase(), secondary:secondary.toLowerCase()});
+    const data = JSON.stringify({main:main.toLowerCase(), secondary:secondary.toLowerCase(), equip:equip.toLowerCase()});
     // Turns state passed from App.JS into JSON for Flask route to read.
     const exerciselist = await fetch('http://localhost:5000/api/generate', {
       method: 'POST',
