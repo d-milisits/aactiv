@@ -31,3 +31,31 @@
 .false {
   height:80vh;
 }
+/* MOBILE MEDIA QUERIES */
+@media (max-width: 1000px) {
+  .profile-message {
+    font-size: 1.2rem;
+  }
+  .button {
+    font-size:.9rem;
+    width: 135px;
+    height:40px;
+  }
+  .profile-content {
+    padding-top: 14vh;
+  }
+  .favorite-content {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  .favorite-content li {
+    font-size: 1rem;
+  }
+  .profile-content {
+    padding-top: 17.5vh;
+  }
+  .weight-img {
+    height:75px;
+    width: 75px;
+  }
+}

@@ -62,7 +62,9 @@ function SignUp() {
         <img src={Logo} alt="logo"/>
 
         { error ? 
-        <p className="error-prompt">{errorMessage}</p> :
+        <div className="error-prompt">
+        <p className="error-prompt">{errorMessage}</p>
+        </div> :
         null
         }
         { success ? 

@@ -210,3 +210,54 @@
 .favorite-added .button {
     margin-top: 5%;
 }
+/* MOBILE MEDIA QUERIES */
+@media (max-width: 1360px) {
+    .logo-title {
+        font-size: .8rem;
+    }
+    .cta .button {
+        margin-bottom: 30px;
+    }
+    .cta .cta-prompt {
+        font-size: 1rem;
+    }
+    .workout-body .favorite-added p {
+        font-size: 1.2rem;
+    }
+    .favorite-added .button {
+        margin-top:100px;
+    }
+}
+@media (max-width: 1098px) {
+    .exercise-body {
+        flex-direction: column;
+    }
+    .exercise-card-container {
+        padding-left:0;
+        margin-top: 60px;
+        justify-content: center;
+        align-items: center;
+    }
+    .cta .cta-prompt {
+        padding-right:0;
+        text-align: center;
+    }
+    .cta {
+        flex-direction: row;
+        width:100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .cta .button, .cta .cta-prompt{
+        margin: 2% 5%;
+    }
+    .box {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .card-container {
+        padding-top: 0;
+    }
+}

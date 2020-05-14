@@ -64,7 +64,9 @@ function LogIn({loggedIn, setLoggedIn}) {
             <img src={Logo} alt="logo"/>
 
             { error ? 
-            <p className="error-prompt">Account not found. Please try again.</p> :
+            <div className="error-prompt">
+            <p className="error-prompt">Account not found. Please try again.</p>
+            </div> :
             null
             }
 

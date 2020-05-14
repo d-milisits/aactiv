@@ -265,3 +265,20 @@
   font-weight:200;
   letter-spacing: 2px;
 }
+/* MOBILE MEDIA QUERIES */
+@media (max-width: 1200px) {
+  .input-prompt {
+    font-size: 1.5rem;
+    padding-top: 25px;
+  }
+  .none-prompt {
+    font-size: 1rem;
+  }
+  .input-content span {
+    font-size: 1.2rem;
+  }
+  .button-container {
+    display:flex;
+    flex-direction: column;
+  }
+}

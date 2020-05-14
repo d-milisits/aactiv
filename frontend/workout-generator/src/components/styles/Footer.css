@@ -54,3 +54,11 @@ a {
   color:black;
   font-weight: 600;
 }
+/* MOBILE MEDIA QUERY */
+@media (max-width: 800px) {
+  .footer-container .footer-info-left a, 
+  .footer-container .footer-info-right a,
+  .footer-container .footer-info-right p {
+    font-size: .9rem;
+  }
+}

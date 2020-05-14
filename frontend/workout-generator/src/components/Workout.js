@@ -72,12 +72,18 @@ function Workout({exercises, main, secondary, equip, setExercises}) {
     <div className="workout-body">
 
         { added ? 
-          <p data-aos="fade-down" className="favorite-added">This workout has been added to your favorites, <br></br>{sessionStorage.getItem('username')}. Enjoy!</p> :
+          <div className="favorite-added">
+            <p data-aos="fade-down" className="positive">This workout has been added to your favorites, <br></br>{sessionStorage.getItem('username')}. Enjoy!</p>
+          </div> :
           null
         }
 
         { generate ? 
           <div className="favorite-added">
+            { added ? 
+              <p data-aos="fade-down" className="favorite-added">This workout has been added to your favorites, <br></br>{sessionStorage.getItem('username')}. Enjoy!</p> :
+              null
+            }
           <p data-aos="fade-down" className="favorite-added">Would you like to change your preferences?</p>
           <div data-aos="fade-up" className="button" id="button-3">
             <div id="circle"></div>
@@ -108,7 +114,7 @@ function Workout({exercises, main, secondary, equip, setExercises}) {
 
             <div className="cta">
 
-              <div>
+              <div className="box">
                 <h3 className="cta-prompt">Enjoyed this workout?<br></br>Add it to your favorites.</h3>
                 <div className="button" id="button-3">
                   <div id="circle"></div>
@@ -116,7 +122,7 @@ function Workout({exercises, main, secondary, equip, setExercises}) {
                 </div>
               </div>
 
-              <div>
+              <div className="box">
                 <h3 className="cta-prompt">Not Happy?<br></br>Generate another workout.</h3>
                 <div className="button" id="button-3">
                   <div id="circle"></div>

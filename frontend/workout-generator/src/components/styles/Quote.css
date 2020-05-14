@@ -140,3 +140,30 @@ a {
   transition: .8s all ease;
   backdrop-filter: blur(11px);
 }
+/* MOBILE MEDIA QUERIES */
+@media (max-width: 1000px) {
+  .quote-page {
+    flex-direction: column;
+  }
+  .prompt-content {
+    padding-top: 50px;
+  }
+  .quote {
+    width:100%;
+    min-height:100%;
+  }
+}
+@media (max-width: 800px) {
+  .quote-prompt {
+    font-size: 1.6rem;
+  }
+  .quote-entry {
+    font-size: 1.15rem;
+  }
+  .quote {
+    font-size: 1.2rem;
+    padding-top: 65px;
+    margin:0;
+    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url("../../img/oldschool.jpg") center no-repeat;
+  }
+}

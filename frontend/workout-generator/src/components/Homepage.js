@@ -77,7 +77,7 @@ function Homepage({setLoggedIn}) {
       </section>
       {/* END OF HERO SECTION */}
       <section className="the-point">
-        <div className="container-two">
+        <div className="container-two point">
           <div data-aos="fade-right" className="point-info">
             <div className="point-text padding-right animate-left">
               <div className="global-headline">
@@ -94,12 +94,13 @@ function Homepage({setLoggedIn}) {
             </div>
           </div>
           <div className="point-info-img">
+            .
           </div>
         </div>
       </section>
       {/* END OF POINT SECTION */}
       <section className="get-started">
-        <div className="container-two">
+        <div className="container-two started">
           <div className="get-started-img">
           </div>
           <div data-aos="fade-left" className="start-info">

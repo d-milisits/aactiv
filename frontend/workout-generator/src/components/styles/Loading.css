@@ -38,3 +38,13 @@
   text-align: center;
   text-transform: uppercase;
 }
+/* MOBILE MEDIA QUERIES */
+@media (max-width: 1000px) {
+  .generating {
+    font-size: 1.3rem;
+  }
+  .login .error-prompt p {
+    font-size: .9rem;
+    padding-top: 30px;
+  }
+}

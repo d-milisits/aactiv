@@ -55,3 +55,23 @@
 .page {
   background-color: #f1c40f;
 }
+/* MOBILE MEDIA QUERIES */
+@media (max-width: 800px) {
+  .login img {
+    height: 200px;
+    width: 200px;
+    padding-top: 20px;
+  }
+  .login .field, .login .signup {
+    font-size: .9rem;
+  }
+  .success-prompt {
+    font-size: 1.3rem;
+    max-width: 75%;
+  }
+  .signup-success-prompt {
+    font-size: 1rem;
+    padding-top: 25px;
+    margin-bottom: -25px;
+  }
+}
