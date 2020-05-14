@@ -281,4 +281,12 @@
     display:flex;
     flex-direction: column;
   }
+  .error-prompt {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 800px) {
+  .blank-right {
+    flex:0;
+  }
 }
