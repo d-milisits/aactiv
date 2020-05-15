@@ -16,6 +16,17 @@ function Workout({exercises, main, secondary, equip, setExercises}) {
   const [added, setAdded] = useState(false);
   const [generate, setGenerate] = useState(false);
 
+  // PopUp Modal to show valid selections.
+  function PopUp() {
+    const selectElement = function (element) {
+      return document.querySelector(element);
+    };
+    
+    let body = selectElement('.modal-bg');
+
+    body.classList.toggle('bg-active');
+  }
+
   let exercise_array = [];
   exercises.map(exercise => (
     exercise_array.push(exercise[1])
@@ -102,6 +113,36 @@ function Workout({exercises, main, secondary, equip, setExercises}) {
       <Loading /> : 
       <div className={`thebody ${generate ? "blurred" : ""}`}>
 
+          <div className="modal-bg">  
+            <div className="modal">
+              <div className="list-container">
+                <h2 className="title">For main muscle groups:</h2>
+                <ul className="list">
+                  <li>Aim for 6-8 reps with minimum rest and maxmium intensity. </li>
+                </ul>
+              </div>
+              <div className="list-container">
+                <h2 className="title">For secondary muscle groups:</h2>
+                <ul className="list">
+                  <li>Aim for 10-12 reps with minimum rest and maxmium intensity.</li>
+                  <li>Lighten the weight moderately in comparison to main muscle
+                    group exercises and focus on contraction.
+                  </li>
+                </ul> 
+              </div>
+              <div className="list-container">
+                <h2 className="title">General advice:</h2>
+                <ul className="list">
+                  <li>Keep weight heavy and controlled with mind-muscle connection in 
+                    check. Focus on the stretch & squeeze of your inputted bodypart in order to get 
+                    the most of your workout.
+                  </li>
+                </ul> 
+              </div>
+              <p className="close" onClick={() => PopUp()}>&#x2613;</p>
+            </div>
+          </div>
+
         <NavBar />
         <div className={`exercise-body ${added ? "blurred" : ""}`}>
           <div data-aos="fade-right" className="exercise-card-container">
@@ -143,7 +184,7 @@ function Workout({exercises, main, secondary, equip, setExercises}) {
                   <p className="instructions"><span>Instructions:</span><br></br><br></br>{cardInstructions}</p>
                 </div>
                 {/* <a className="view" href="#" onClick={() => PopUp()}>More Info</a> */}
-                <a className="view" href="#">More Info</a>
+                <a className="view" href="#" onClick={() => PopUp()}>More Info</a>
               </div>
             </div>
           : <div data-aos="fade-left" className="clickMe"><h2>Click an exercise<br></br> to view more info.</h2></div>

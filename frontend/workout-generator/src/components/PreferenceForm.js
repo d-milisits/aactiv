@@ -99,7 +99,7 @@ function PreferenceForm({setMain, setSecondary, setEquip, main, secondary, equip
         <div className="input-content">
 
           <FadeIn transitionDuration="3500">
-          <h1 className="input-prompt">Please answer the questions below to help us find the best options for you.</h1>
+          <h1 className="input-prompt">Please fill in the prompts below to help us find the best options for you.</h1>
           { error ? 
           <p className="error-prompt">Please type a valid input. Check criteria if needed.</p> :
           <p className="none-prompt">If you have no preference, please type "None".</p>

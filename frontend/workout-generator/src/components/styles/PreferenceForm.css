@@ -224,11 +224,11 @@
 .bg-active {
   visibility: visible;
   opacity: 1;
-  z-index:1;
+  z-index:1000;
 }
 .modal {
   background-color: white;
-  min-width: 40%;
+  max-width: 50%;
   min-height: 50%;
   display: flex;
   justify-content: center;
