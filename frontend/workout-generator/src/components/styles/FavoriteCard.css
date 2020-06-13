@@ -37,3 +37,21 @@ li {
   top:45%;
   left: 23%;
 }
+@media (max-width: 480px) {
+  .favorite-card ul li {
+    font-size: .85rem;
+    padding-top: 5px;;
+    padding-bottom: 5px;
+  }
+  .favorite-card-content {
+    padding-top: 0;
+  }
+  .click-remove {
+    font-size: 1.25rem;
+    top:50%;
+    left: 32%;
+  }
+  .favorite-card {
+    margin-top: 0;
+  }
+}

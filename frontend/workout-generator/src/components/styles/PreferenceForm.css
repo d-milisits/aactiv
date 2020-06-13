@@ -290,3 +290,46 @@
     flex:0;
   }
 }
+@media (max-width: 550px) {
+  .input-content {
+    text-align: center;
+  }
+  .input-prompt {
+    font-size: 1.25rem;
+  }
+  .none-prompt {
+    font-size: .9rem;
+  }
+  .input-content .button-container {
+    flex-direction: column;
+  }
+  .input-content .button-container .button {
+    margin-top:0;
+    font-size: .825rem;
+  }
+  .a-field {
+    margin-left:0;
+  }
+  .modal {
+    min-width: 100%;
+  }
+  .modal {
+    flex-direction: column;
+  }
+  .list-container {
+    padding: 12.5px 30px;
+  }
+  .list-container h2 {
+    font-size: 1rem;
+  }
+  .list-container li {
+    padding:3.25px;
+    font-size: .75rem;
+  }
+  .input-field-list .a-field__label {
+    font-size: 1rem;
+  }
+  .input-field-list .field__input::placeholder, .input-field-list .field__input {
+    font-size: 1rem;
+  }
+}

@@ -48,3 +48,20 @@
     padding-top: 30px;
   }
 }
+@media (max-width: 500px) {
+  .loader-container {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 35px;
+  }
+  .loader-div {
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+  }
+  .generating {
+    font-size: .9rem;
+    width: 75%;
+    margin:auto;
+    padding-top: 30vh;
+  }
+}

@@ -156,7 +156,7 @@ function Workout({exercises, main, secondary, equip, setExercises}) {
             <div className="cta">
 
               <div className="box">
-                <h3 className="cta-prompt">Enjoyed this workout?<br></br>Add it to your favorites.</h3>
+                <h3 className="cta-prompt">Enjoyed this workout?<br></br>Favorite it.</h3>
                 <div className="button" id="button-3">
                   <div id="circle"></div>
                   <a href="#" onClick={() => addToFavorite()}>Favorite</a>
@@ -164,7 +164,7 @@ function Workout({exercises, main, secondary, equip, setExercises}) {
               </div>
 
               <div className="box">
-                <h3 className="cta-prompt">Not Happy?<br></br>Generate another workout.</h3>
+                <h3 className="cta-prompt">Not Happy?<br></br>Generate another.</h3>
                 <div className="button" id="button-3">
                   <div id="circle"></div>
                   <a href="#" onClick={() => setGenerate(true)} >Generate</a>
@@ -183,7 +183,6 @@ function Workout({exercises, main, secondary, equip, setExercises}) {
                   <p className="preparation"><span>Preparation:</span><br></br><br></br>{cardPrep}</p>
                   <p className="instructions"><span>Instructions:</span><br></br><br></br>{cardInstructions}</p>
                 </div>
-                {/* <a className="view" href="#" onClick={() => PopUp()}>More Info</a> */}
                 <a className="view" href="#" onClick={() => PopUp()}>More Info</a>
               </div>
             </div>

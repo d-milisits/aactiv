@@ -394,4 +394,30 @@ header {
     padding: 1.5rem 0 5rem 0;
   }
 }
-
+@media (max-width: 474px) {
+  .logo {
+    height: 150px;
+    width: 280px;
+  }
+  .nav-list {
+    padding-left: 1.25rem;
+    width: 75%;
+  }
+  .hero .btn {
+    margin-top:20px;
+    padding: 12px 18px;
+    font-size: .9rem;
+  }
+  .container-two .btn {
+    font-size: 1.25rem;
+  }
+  .container-two .sub-headline {
+    line-height: 25px;
+  }
+  .aactiv {
+    font-size: 1.5rem;
+  }
+  .menu-toggle p {
+    font-size: 1.75rem;
+  }
+}

@@ -167,3 +167,31 @@ a {
     background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url("../../img/oldschool.jpg") center no-repeat;
   }
 }
+@media (max-width: 400px) {
+  .quote-prompt {
+    font-size: 1.35rem;
+  }
+  .quote-entry {
+    font-size: .9rem;
+  }
+  .quote {
+    padding-left: 25px;
+    padding-right: 25px;
+    justify-content: center;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .quote-content {
+    font-size: 1.5rem;
+  }
+  .button-container .button, .quote .button {
+    font-size: .8rem;
+    margin-top: 0;
+  }
+  .button-container #button3 {
+    padding:0;
+  }
+  .quote iframe {
+    margin: 35px;
+  }
+}

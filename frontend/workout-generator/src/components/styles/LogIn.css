@@ -64,6 +64,7 @@
   }
   .login .field, .login .signup {
     font-size: .9rem;
+    text-align: center;
   }
   .success-prompt {
     font-size: 1.3rem;
@@ -73,5 +74,26 @@
     font-size: 1rem;
     padding-top: 25px;
     margin-bottom: -25px;
+  }
+}
+@media (max-width: 600px) {
+  .signup-success-prompt {
+    text-align: center;
+  }
+}
+@media (max-width: 450px) {
+  .a-field {
+    margin-left: 0;
+  }
+  .signup a {
+    font-size: .75rem;
+  }
+  .login .error-prompt p {
+    font-size:.75rem;
+    text-align: center;
+  }
+  .signup-success-prompt {
+    font-size: .8rem;
+    margin-bottom: -10px;
   }
 }
