@@ -20,7 +20,7 @@ function SignUp() {
   const createAccount = async () => {
     if (password === confirm) {
       const data = JSON.stringify({username:username, password:password});
-      const status = await fetch('http://0.0.0.0:5000/api/create', {
+      const status = await fetch('http://127.0.0.1:5000/api/create', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',

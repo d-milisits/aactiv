@@ -14,7 +14,7 @@ function Profile() {
 
   const getFavorites = async () => {
     const data = JSON.stringify({username:sessionStorage.getItem('username')});
-    const status = await fetch ('http://0.0.0.0:5000/api/profile', {
+    const status = await fetch ('http://127.0.0.1:5000/api/profile', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

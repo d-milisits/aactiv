@@ -50,7 +50,7 @@ function PreferenceForm({setMain, setSecondary, setEquip, main, secondary, equip
   const getWorkout = async () => {
     const data = JSON.stringify({main:main.toLowerCase(), secondary:secondary.toLowerCase(), equip:equip.toLowerCase()});
     // Turns state passed from App.JS into JSON for Flask route to read.
-    const exerciselist = await fetch('http://0.0.0.0:5000/api/generate', {
+    const exerciselist = await fetch('http://127.0.0.1:5000/api/generate', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
