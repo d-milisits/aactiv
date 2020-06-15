@@ -37,7 +37,7 @@ function Workout({exercises, main, secondary, equip, setExercises}) {
   // Post request to send JSON data to & add to user_favorites table.
   const addToFavorite = async () => {
     const data = JSON.stringify({username:sessionStorage.getItem('username'), favorite:exercise_string});
-    const status = await fetch('http://localhost:5000/api/favorite', {
+    const status = await fetch('http://0.0.0.0:5000/api/favorite', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -61,7 +61,7 @@ function Workout({exercises, main, secondary, equip, setExercises}) {
     setGenerate(false);
     const data = JSON.stringify({main:main.toLowerCase(), secondary:secondary.toLowerCase(), equip:equip.toLowerCase()});
     // Turns state passed from App.JS into JSON for Flask route to read.
-    const exerciselist = await fetch('http://localhost:5000/api/generate', {
+    const exerciselist = await fetch('http://0.0.0.0:5000/api/generate', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

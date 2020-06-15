@@ -15,7 +15,7 @@ function Quote() {
     setToggle(true);
     setBlur(true);
     try {
-      const quotes = await fetch("http://localhost:5000/api/quote");
+      const quotes = await fetch("http://0.0.0.0:5000/api/quote");
       const output = await quotes.json();
       // output.quote -- ".quote" is the JSON key being returned from python. 
       setQuote(output.quote[0]);
