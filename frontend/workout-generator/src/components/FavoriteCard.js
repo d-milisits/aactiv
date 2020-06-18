@@ -16,7 +16,7 @@ function FavoriteCard({favorite, getFavorites, setRemoved}) {
 
     const removeFavorite = async () => {
       const data = JSON.stringify({username:sessionStorage.getItem('username'), favorite:text[0]});
-      const removeStatus = await fetch('http://127.0.0.1:5000/api/remove', {
+      const removeStatus = await fetch('http://0.0.0.0:5000/api/remove', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
