@@ -22,7 +22,7 @@ function LogIn({loggedIn, setLoggedIn}) {
   // Sends login data to flask route.
   const login = async () => {
     const data = JSON.stringify({username:username, password:password});
-    const status = await fetch('http://0.0.0.0:5000/api/login', {
+    const status = await fetch('http://localhost:5000/api/login', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
