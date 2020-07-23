@@ -1,8 +1,8 @@
-# About react-news 
+# About AACTIV 
 
 **Version 1.3.1**
 
-Web-scraped for extensive exercise information using BeautifulSoup & stored in a SQLite database to be returned to users filted through a preference-based algorithm. Ability to create an account, login/authenticate & manage your favorites with ease.
+Web-scraped for extensive exercise information using BeautifulSoup & stored in a SQLite database to be returned to users filted through a preference-based algorithm. Ability to create an account, login/authenticate & manage your uniquely generated favorites with ease.
 
 ## How to run locally
 
